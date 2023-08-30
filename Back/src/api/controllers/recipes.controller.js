@@ -2,12 +2,25 @@ const Recipe = require("../models/recipes.models")
 
 const getRecipes = async(req,res)=>{
     try {
-      const allRecipes = await Recipe.find();
+      const allRecipes = await Recipe.find().populate("comments");
       return res.status(200).json(allRecipes)
     } catch (error) {
       return res.status(500).json(error)
     }
-  }
+  };
+
+  const getRecipeById = async (req, res) => {
+    try {
+      const { id } = req.params;
+      const recipe = await Recipe.findById(id).populate("comments")
+      if (!recipe) {
+        return res.status(404).json({ message: "recipe not found :(" });
+      }
+      return res.status(200).json(recipe);
+    } catch (error) {
+      return res.status(500).json(error);
+    }
+  };
 
   const postRecipe = async (req, res) => {
     try {
@@ -48,4 +61,4 @@ const getRecipes = async(req,res)=>{
     }
   }
 
-  module.exports = {getRecipes, postRecipe, updateRecipe, deleteRecipe};
+  module.exports = {getRecipes, getRecipeById, postRecipe, updateRecipe, deleteRecipe};
