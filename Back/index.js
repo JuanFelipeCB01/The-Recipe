@@ -1,10 +1,9 @@
 const express = require('express');
 const dotenv = require('dotenv');
+const { connect } = require('./src/utils/database');
 const cors = require('cors');
 const cloudinary = require('cloudinary').v2;
-
-const { connect } = require('./src/utils/database');
-const routerUser = require('./src/api/routes/user.routes');
+const recipeRouter = require('./src/api/routes/recipes.route');
 
 dotenv.config();
 // cloudinary.config({
@@ -16,13 +15,19 @@ dotenv.config();
 
 const PORT = process.env.PORT || 5001;
 const app = express();
-app.use(cors());
+app.use(cors(
+  {
+    origin:"*",
+    credentials:true
+  }
+));
 app.use(express.json());
+
+app.use('/recipes', recipeRouter);
 
 connect();
 
-// bloque de rutas
-//app.use('/user', routerUser);
+
 
 app.listen(PORT, () => {
   console.log(`Listening http://localhost:${PORT}`);
