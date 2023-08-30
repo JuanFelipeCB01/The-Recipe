@@ -34,7 +34,7 @@ const arrayRecipes = [
     // ],
     // chef: "ChefAlegre",
     image: "imagen_galletas.jpg",
-    rating: 4.8,
+    likes: 0,
   },
 ];
 
