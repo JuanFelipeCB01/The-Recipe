@@ -4,12 +4,42 @@ const dotenv = require('dotenv').config();
 
 const arrayUsers = [
     {
-        "name": "Admin",
+        "name": "Admin1",
         "role": "admin",
-        "email": "admin@admin.com",
+        "email": "admin1@admin.com",
         "age": "50",
-        "password": "admin123,",
-        "image": "admin.jpg",
+        "password": "admin1123,",
+        "image": "admin1.jpg",
+        "recipes": [],
+        "comments": []
+      },
+      {
+        "name": "Admin2",
+        "role": "admin",
+        "email": "admin2@admin.com",
+        "age": "40",
+        "password": "admin2123,",
+        "image": "admin2.jpg",
+        "recipes": [],
+        "comments": []
+      },
+      {
+        "name": "User1",
+        "role": "user",
+        "email": "user1@user.com",
+        "age": "30",
+        "password": "user1123,",
+        "image": "user1.jpg",
+        "recipes": [],
+        "comments": []
+      },
+      {
+        "name": "User2",
+        "role": "user",
+        "email": "user2@user.com",
+        "age": "20",
+        "password": "user2123,",
+        "image": "user2.jpg",
         "recipes": [],
         "comments": []
       }
