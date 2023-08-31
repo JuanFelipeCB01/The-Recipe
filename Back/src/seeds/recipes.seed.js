@@ -23,14 +23,14 @@ const arrayRecipes =
     "categories": ["Recetas Fáciles", "Recetas para Niños"],
     "country": "Internacional",
     "comments": [
-      {
-        "Usuario": "CocinaConAmor",
-        "Comentario": "¡Estas galletas son increíbles! A mis hijos les encantan."
-      },
-      {
-        "Usuario": "Foodie123",
-        "Comentario": "Muy fácil de hacer y saben deliciosas. Definitivamente las recomiendo."
-      }
+      // {
+      //   "Usuario": "64f0aecef7d5e7dbdc923c7e",
+      //   "Comentario": "64ef5d44c2b47746d506aec5"
+      // },
+      // {
+      //   "Usuario": "64f0aecef7d5e7dbdc923c7e",
+      //   "Comentario": "64ef5d44c2b47746d506aec5"
+      // }
     ],
     "chef": "64f0aecef7d5e7dbdc923c7c",
     "image": "imagen_galletas.jpg",
@@ -53,14 +53,14 @@ const arrayRecipes =
     "categories": ["Ensaladas", "Comida Saludable"],
     "country": "Internacional",
     "comments": [
-      {
-        "Usuario": "HealthyEater",
-        "Comentario": "Esta ensalada es perfecta para una comida ligera y saludable."
-      },
-      {
-        "Usuario": "FoodLover",
-        "Comentario": "El salmón le da un toque delicioso a esta ensalada."
-      }
+      // {
+      //   "Usuario": "64f0aecef7d5e7dbdc923c7e",
+      //   "Comentario": "64ef5d44c2b47746d506aec5"
+      // },
+      // {
+      //   "Usuario": "64f0aecef7d5e7dbdc923c7e",
+      //   "Comentario": "64ef5d44c2b47746d506aec5"
+      // }
     ],
     "chef": "64f0aecef7d5e7dbdc923c7d",
     "image": "imagen_ensalada.jpg",
@@ -82,14 +82,14 @@ const arrayRecipes =
     "categories": ["Batidos", "Desayunos Saludables"],
     "country": "Internacional",
     "comments": [
-      {
-        "Usuario": "HealthyMorning",
-        "Comentario": "Este batido es mi desayuno favorito. ¡Altamente recomendado!"
-      },
-      {
-        "Usuario": "NutritionExpert",
-        "Comentario": "Una excelente fuente de energía para comenzar el día."
-      }
+      // {
+      //   "Usuario": "64f0aecef7d5e7dbdc923c7e",
+      //   "Comentario": "64ef5d44c2b47746d506aec5"
+      // },
+      // {
+      //   "Usuario": "64f0aecef7d5e7dbdc923c7e",
+      //   "Comentario": "64ef5d44c2b47746d506aec5"
+      // }
     ],
     "chef": "64f0aecef7d5e7dbdc923c7c",
     "image": "imagen_batido.jpg",
@@ -113,14 +113,14 @@ const arrayRecipes =
     "categories": ["Platos Principales", "Comida Saludable"],
     "country": "Internacional",
     "comments": [
-      {
-        "Usuario": "ChefSaludable",
-        "Comentario": "Este plato es una excelente opción para una comida saludable y deliciosa."
-      },
-      {
-        "Usuario": "FoodEnthusiast",
-        "Comentario": "El salmón al horno siempre es una buena elección."
-      }
+      // {
+      //   "Usuario": "64f0aecef7d5e7dbdc923c7e",
+      //   "Comentario": "64ef5d44c2b47746d506aec5"
+      // },
+      // {
+      //   "Usuario": "64f0aecef7d5e7dbdc923c7e",
+      //   "Comentario": "64ef5d44c2b47746d506aec5"
+      // }
     ],
     "chef": "64f0aecef7d5e7dbdc923c7d",
     "image": "imagen_salmon_brocoli.jpg",
@@ -143,14 +143,14 @@ const arrayRecipes =
     "categories": ["Desayunos", "Recetas Rápidas"],
     "country": "Internacional",
     "comments": [
-      {
-        "Usuario": "MorningChef",
-        "Comentario": "Este revuelto es perfecto para un desayuno rápido y saludable."
-      },
-      {
-        "Usuario": "FoodLover123",
-        "Comentario": "Me encanta la combinación de huevo y espinacas."
-      }
+      // {
+      //   "Usuario": "64f0aecef7d5e7dbdc923c7e",
+      //   "Comentario": "64ef5d44c2b47746d506aec5"
+      // },
+      // {
+      //   "Usuario": "64f0aecef7d5e7dbdc923c7e",
+      //   "Comentario": "64ef5d44c2b47746d506aec5"
+      // }
     ],
     "chef": "64f0aecef7d5e7dbdc923c7c",
     "image": "imagen_revuelto_huevo.jpg",
@@ -172,14 +172,14 @@ const arrayRecipes =
     "categories": ["Sándwiches", "Comida Rápida"],
     "country": "Internacional",
     "comments": [
-      {
-        "Usuario": "SandwichLover",
-        "Comentario": "Este sándwich es mi almuerzo favorito. ¡Altamente recomendado!"
-      },
-      {
-        "Usuario": "HealthyEater",
-        "Comentario": "Una opción saludable y deliciosa para el almuerzo."
-      }
+      // {
+      //   "Usuario": "64f0aecef7d5e7dbdc923c7e",
+      //   "Comentario": "64ef5d44c2b47746d506aec5"
+      // },
+      // {
+      //   "Usuario": "64f0aecef7d5e7dbdc923c7e",
+      //   "Comentario": "64ef5d44c2b47746d506aec5"
+      // }
     ],
     "chef": "64f0aecef7d5e7dbdc923c7d",
     "image": "imagen_sandwich_pavo.jpg",
@@ -201,14 +201,14 @@ const arrayRecipes =
     "categories": ["Batidos", "Meriendas Saludables"],
     "country": "Internacional",
     "comments": [
-      {
-        "Usuario": "SmoothieLover",
-        "Comentario": "Este smoothie es mi merienda favorita. ¡Muy sabroso!"
-      },
-      {
-        "Usuario": "NutritionFan",
-        "Comentario": "Una excelente fuente de energía y proteínas."
-      }
+      // {
+      //   "Usuario": "64f0aecef7d5e7dbdc923c7e",
+      //   "Comentario": "Este smoothie es mi merienda favorita. ¡Muy sabroso!"
+      // },
+      // {
+      //   "Usuario": "64f0aecef7d5e7dbdc923c7e",
+      //   "Comentario": "Una excelente fuente de energía y proteínas."
+      // }
     ],
     "chef": "64f0aecef7d5e7dbdc923c7c",
     "image": "imagen_smoothie_platano.jpg",
@@ -231,14 +231,14 @@ const arrayRecipes =
     "categories": ["Sopas", "Comida Saludable"],
     "country": "Internacional",
     "comments": [
-      {
-        "Usuario": "SoupLover",
-        "Comentario": "Esta sopa es perfecta para un día frío. ¡Muy deliciosa!"
-      },
-      {
-        "Usuario": "HealthyEater",
-        "Comentario": "Una opción saludable y reconfortante para la cena."
-      }
+      // {
+      //   "Usuario": "64f0aecef7d5e7dbdc923c7e",
+      //   "Comentario": "64ef5d44c2b47746d506aec5"
+      // },
+      // {
+      //   "Usuario": "64f0aecef7d5e7dbdc923c7e",
+      //   "Comentario": "64ef5d44c2b47746d506aec5"
+      // }
     ],
     "chef": "64f0aecef7d5e7dbdc923c7d",
     "image": "imagen_sopa_brocoli.jpg",
@@ -263,14 +263,14 @@ const arrayRecipes =
     "categories": ["Desayunos", "Recetas Rápidas"],
     "country": "Internacional",
     "comments": [
-      {
-        "Usuario": "MorningDelight",
-        "Comentario": "Estas tostadas son mi desayuno favorito. ¡Altamente recomendado!"
-      },
-      {
-        "Usuario": "FoodLover123",
-        "Comentario": "La combinación de aguacate y huevo es increíble."
-      }
+      // {
+      //   "Usuario": "64f0aecef7d5e7dbdc923c7e",
+      //   "Comentario": "64ef5d44c2b47746d506aec5"
+      // },
+      // {
+      //   "Usuario": "64f0aecef7d5e7dbdc923c7e",
+      //   "Comentario": "64ef5d44c2b47746d506aec5"
+      // }
     ],
     "chef": "64f0aecef7d5e7dbdc923c7d",
     "image": "imagen_tostadas_aguacate.jpg",
@@ -292,14 +292,14 @@ const arrayRecipes =
     "categories": ["Batidos", "Meriendas Saludables"],
     "country": "Internacional",
     "comments": [
-      {
-        "Usuario": "SmoothieLover",
-        "Comentario": "Este smoothie es mi merienda favorita. ¡Muy sabroso!"
-      },
-      {
-        "Usuario": "NutritionFan",
-        "Comentario": "Una excelente fuente de energía y proteínas."
-      }
+      // {
+      //   "Usuario": "64f0aecef7d5e7dbdc923c7e",
+      //   "Comentario": "64ef5d44c2b47746d506aec5"
+      // },
+      // {
+      //   "Usuario": "64f0aecef7d5e7dbdc923c7e",
+      //   "Comentario": "64ef5d44c2b47746d506aec5"
+      // }
     ],
     "chef": "64f0aecef7d5e7dbdc923c7c",
     "image": "imagen_smoothie_platano.jpg",
