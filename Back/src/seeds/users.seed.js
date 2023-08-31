@@ -25,7 +25,7 @@ mongoose.connect(DB_URL)
         console.log("Users deleted");
     }
 })
-.catch((error)=> console.log("error deleting userss",error))
+.catch((error)=> console.log("error deleting users",error))
 .then(async ()=> {
     const userMap = arrayUsers.map((user) => new User(user));
     await User.insertMany(userMap);
