@@ -6,6 +6,7 @@ const cloudinary = require('cloudinary').v2;
 const recipeRouter = require('./src/api/routes/recipes.routes');
 const ingredientRouter = require('./src/api/routes/ingredients.routes');
 const userRouter = require('./src/api/routes/user.routes');
+const commentsRouter = require('./src/api/routes/comments.routes');
 
 
 dotenv.config();
@@ -29,6 +30,7 @@ app.use(express.json());
 app.use('/recipes', recipeRouter);
 app.use('/ingredients', ingredientRouter);
 app.use('/user', userRouter)
+app.use('/comments', commentsRouter)
 
 
 connect();

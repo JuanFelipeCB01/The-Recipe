@@ -51,14 +51,14 @@ const login = async (req, res) => {
 
 const getUsers = async (req, res) => {
     try {
-      const allUsers = await User.find();
+      const allUsers = await User.find().populate("recipes");
       return res.status(200).json(allUsers);
     } catch (error) {
       return res.status(500).json(error);
     }
   };
 
-  
+
 const deleteUser = async (req, res) =>{
     try {
       const {id} = req.params;
