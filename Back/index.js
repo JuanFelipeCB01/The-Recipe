@@ -5,6 +5,7 @@ const cors = require('cors');
 const cloudinary = require('cloudinary').v2;
 const recipeRouter = require('./src/api/routes/recipes.routes');
 const ingredientRouter = require('./src/api/routes/ingredients.routes');
+const userRouter = require('./src/api/routes/user.routes');
 
 
 dotenv.config();
@@ -27,6 +28,7 @@ app.use(express.json());
 
 app.use('/recipes', recipeRouter);
 app.use('/ingredients', ingredientRouter);
+app.use('/user', userRouter)
 
 
 connect();
