@@ -6,7 +6,6 @@ const userRouter = express.Router();
 
 userRouter.post("/register", register);
 userRouter.post("/login", login);
-
 userRouter.get("/", getUsers);
 userRouter.delete("/:id", deleteUser);
 userRouter.put("/:id", updateUser)

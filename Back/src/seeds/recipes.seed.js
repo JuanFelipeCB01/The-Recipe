@@ -21,18 +21,18 @@ const arrayRecipes = [
     ],
     categories: ["Recetas Fáciles", "Recetas para Niños"],
     country: "Internacional",
-    // comments: [
-    //   {
-    //     Usuario: "CocinaConAmor",
-    //     Comentario: "¡Estas galletas son increíbles! A mis hijos les encantan.",
-    //   },
-    //   {
-    //     Usuario: "Foodie123",
-    //     Comentario:
-    //       "Muy fácil de hacer y saben deliciosas. Definitivamente las recomiendo.",
-    //   },
-    // ],
-    // chef: "ChefAlegre",
+    comments: [
+      {
+        Usuario: "CocinaConAmor",
+        Comentario: "¡Estas galletas son increíbles! A mis hijos les encantan.",
+      },
+      {
+        Usuario: "Foodie123",
+        Comentario:
+          "Muy fácil de hacer y saben deliciosas. Definitivamente las recomiendo.",
+      },
+    ],
+    chef: "ChefAlegre",
     image: "imagen_galletas.jpg",
     likes: 0,
   },

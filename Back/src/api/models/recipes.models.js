@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-//bloque de  modelos por cada modelo de datos
 const recipeSchema = new Schema(
   {
     name: { type: String, required: true },

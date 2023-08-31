@@ -7,8 +7,6 @@ const {
 } = require("../../utils/validator");
 const { generateSign } = require("../../utils/jwt");
 
-
-
 const register = async (req, res) => {
   try {
     const newUser = new User(req.body);
@@ -48,51 +46,54 @@ const login = async (req, res) => {
   }
 };
 
-
 const getUsers = async (req, res) => {
-    try {
-      const allUsers = await User.find().populate("recipes");
-      return res.status(200).json(allUsers);
-    } catch (error) {
-      return res.status(500).json(error);
-    }
-  };
-
-
-const deleteUser = async (req, res) =>{
-    try {
-      const {id} = req.params;
-      const deleteUser = await User.findByIdAndDelete(id)
-      if(!deleteUser){
-        return res.status(418).json({message: "What are you doing??"})
-      }
-      return res.status(200).json(deleteUser)
-    } catch (error) {
-      return res.status(500).json(error)
-    }
+  try {
+    const allUsers = await User.find().populate("recipes");
+    return res.status(200).json(allUsers);
+  } catch (error) {
+    return res.status(500).json(error);
   }
+};
 
-  
-  const updateUser = async (req, res) => {
-    try {
-      const { id } = req.params;
-      const updateUser = new User(req.body);
-      updateUser.id = id;
-
-      if (!validatePassword(updateUser.password)) {
-        return res.status(400).json({ message: "Password invalid" });
-      }
-
-      const updatedInfo = await User.findByIdAndUpdate(id, updateUser, {
-        new: true,
-      });
-      if (!updatedInfo) {
-        return res.status(404).json({ message: "Not find :(" });
-      }
-      return res.status(200).json(updatedInfo);
-    } catch (error) {
-      return res.status(500).json(error);
+const deleteUser = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleteUser = await User.findByIdAndDelete(id);
+    if (!deleteUser) {
+      return res.status(418).json({ message: "What are you doing??" });
     }
-  };
+    return res.status(200).json(deleteUser);
+  } catch (error) {
+    return res.status(500).json(error);
+  }
+};
 
-module.exports = { register, login, getUsers, deleteUser, updateUser };
+const updateUser = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updateUser = new User(req.body);
+    updateUser.id = id;
+
+    if (!validatePassword(updateUser.password)) {
+      return res.status(400).json({ message: "Password invalid" });
+    }
+
+    const updatedInfo = await User.findByIdAndUpdate(id, updateUser, {
+      new: true,
+    });
+    if (!updatedInfo) {
+      return res.status(404).json({ message: "Not find :(" });
+    }
+    return res.status(200).json(updatedInfo);
+  } catch (error) {
+    return res.status(500).json(error);
+  }
+};
+
+module.exports = {
+  register,
+  login,
+  getUsers,
+  deleteUser,
+  updateUser,
+};
