@@ -1,4 +1,3 @@
-// Todas las validaciones de datos que hagan falta en el proyecto
 const User = require('../api/models/users.models')
 
 // regex email
