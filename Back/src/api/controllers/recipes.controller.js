@@ -2,7 +2,7 @@ const Recipe = require("../models/recipes.models");
 
 const getRecipes = async (req, res) => {
   try {
-    const allRecipes = await Recipe.find().populate("comments");
+    const allRecipes = await Recipe.find().populate("comments").populate("ingredients").populate("users");
     return res.status(200).json(allRecipes);
   } catch (error) {
     return res.status(500).json(error);
@@ -12,7 +12,7 @@ const getRecipes = async (req, res) => {
 const getRecipeById = async (req, res) => {
   try {
     const { id } = req.params;
-    const recipe = await Recipe.findById(id).populate("comments");
+    const recipe = await Recipe.findById(id).populate("comments").populate("ingredients").populate("users");
     if (!recipe) {
       return res.status(404).json({ message: "recipe not found :(" });
     }
