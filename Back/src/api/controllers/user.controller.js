@@ -48,6 +48,18 @@ const login = async (req, res) => {
   }
 };
 
+const profile = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const user = await User.findById(id).populate("recipes");
+    if (!user) {
+      return res.status(404).json({ message: "User not found :(" });
+    }
+    return res.status(200).json(user);
+  } catch (error) {
+    return res.status(500).json(error);
+  }
+};
 
 const getUsers = async (req, res) => {
     try {
@@ -57,7 +69,6 @@ const getUsers = async (req, res) => {
       return res.status(500).json(error);
     }
   };
-
 
 const deleteUser = async (req, res) =>{
     try {
@@ -72,8 +83,7 @@ const deleteUser = async (req, res) =>{
     }
   }
 
-  
-  const updateUser = async (req, res) => {
+const updateUser = async (req, res) => {
     try {
       const { id } = req.params;
       const updateUser = new User(req.body);
@@ -95,4 +105,4 @@ const deleteUser = async (req, res) =>{
     }
   };
 
-module.exports = { register, login, getUsers, deleteUser, updateUser };
+module.exports = { register, login, profile, getUsers, deleteUser, updateUser };
