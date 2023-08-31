@@ -3,7 +3,9 @@ const dotenv = require('dotenv');
 const { connect } = require('./src/utils/database');
 const cors = require('cors');
 const cloudinary = require('cloudinary').v2;
-const recipeRouter = require('./src/api/routes/recipes.route');
+const recipeRouter = require('./src/api/routes/recipes.routes');
+const ingredientRouter = require('./src/api/routes/ingredients.routes');
+
 
 dotenv.config();
 // cloudinary.config({
@@ -24,6 +26,8 @@ app.use(cors(
 app.use(express.json());
 
 app.use('/recipes', recipeRouter);
+app.use('/ingredients', ingredientRouter);
+
 
 connect();
 
