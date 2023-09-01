@@ -5,6 +5,7 @@ const ingredientSchema = new Schema(
     {
         name: {type:String, required: true},
         description: {type:String, required: true},
+        category: {type:String, rquired:false},
         energeticValue: {type:String, required: true},
         totalFat: {type:String, required: true},
         saturatedFat: {type:String, required: true},
