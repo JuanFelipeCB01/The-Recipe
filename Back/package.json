@@ -1,11 +1,30 @@
 {
-  "name": "back",
+  "name": "clase1",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "server-dev": "node server.js",
+    "seedrecipes": "node ./src/seeds/recipes.seed.js",
+    "seedingredients": "node ./src/seeds/ingredients.seed.js",
+    "seedusers": "node ./src/seeds/users.seed.js",
+    "seedcomments": "node ./src/seeds/comments.seed.js"
+
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cloudinary": "^1.39.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.1",
+    "mongoose": "^7.4.0",
+    "multer": "^1.4.5-lts.1",
+    "multer-storage-cloudinary": "^4.0.0"
+  }
 }
