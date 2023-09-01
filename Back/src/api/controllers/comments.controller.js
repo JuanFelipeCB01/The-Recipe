@@ -2,7 +2,7 @@ const Comments = require("../models/comments.models");
 
 const getComments = async (req, res) => {
   try {
-    const allComments = await Comments.find();
+    const allComments = await Comments.find().populate("name");
     return res.status(200).json(allComments);
   } catch (error) {
     return res.status(500).json(error);

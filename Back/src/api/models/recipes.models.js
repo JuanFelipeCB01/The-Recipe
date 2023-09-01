@@ -11,7 +11,7 @@ const recipeSchema = new Schema(
         ingredient: {
           type: Schema.Types.ObjectId,
           required: true,
-          ref: "ingredients",
+          ref: "ingredients"
         },
         quantity: { type: String, required: false },
       },
@@ -20,7 +20,7 @@ const recipeSchema = new Schema(
     categories: { type: Array, required: false },
     country: { type: String, required: false },
     comments: [{ type: Schema.Types.ObjectId, required: false, ref: "comments" }],
-    chef: { type: Schema.Types.ObjectId, required: true, ref: "user" },
+    chef: { type: Schema.Types.ObjectId, required: true, ref: "users" },
     image: { type: Array, required: false },
     likes: { type: Number, required: false },
   },
