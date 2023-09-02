@@ -1,7 +1,9 @@
+
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-function RecipesPage() {
+function RecipesPage(){
+  
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
@@ -60,6 +62,7 @@ function RecipesPage() {
         </ul>
     </div>
   );
+
 }
 
 export default RecipesPage;

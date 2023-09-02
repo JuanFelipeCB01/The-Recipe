@@ -7,6 +7,7 @@ import ProfilePage from "./ProfilePage/ProfilePage";
 import RecipesDetailPage from "./RecipesDetailPage/RecipesDetailPage";
 import RecipesPage from "./RecipesPage/RecipesPage";
 import RegisterPage from "./RegisterPage/RegisterPage";
+import ContactPage from "./ContactPage/ContactPage";
 
 
 export default function Routes() {
@@ -25,6 +26,7 @@ export default function Routes() {
       <Route path="/register" element={<RegisterPage />} />
 
       <Route path="/profile" element={<ProfilePage />} />
+      <Route path="/contact" element={<ContactPage />} />
 
     </RoutesDom>
   );

@@ -1,0 +1,66 @@
+{
+  "_id": "64f30cec944876e45d70d0fa",
+  "name": "Galletas de Avena",
+  "description": "Deliciosas galletas de avena ideales para un snack saludable.",
+  "ingredients": [
+    {
+      "ingredient": {
+        "_id": "64f1c05a310dc5167d557191",
+        "name": "Avena",
+        "description": "La avena es un grano saludable y versátil, rico en fibra y nutrientes esenciales.",
+        "category": "Cereal",
+        "energeticValue": "389 kcal",
+        "totalFat": "6.9 g",
+        "saturatedFat": "1.2 g",
+        "carbs": "67.7 g",
+        "sugars": "0.99 g",
+        "sodium": "0.01 g",
+        "image": "https://www.recetasnestlecam.com/sites/default/files/styles/crop_article_banner_desktop_nes/public/2022-04/avena.jpg.jpg?itok=SgCou3hU",
+        "__v": 0
+      },
+      "quantity": "1 taza",
+      "_id": "64f30cec944876e45d70d0fb"
+    }
+  ],
+  "preparations": [
+    "Precalienta el horno a 180°C.",
+    "En un tazón, aplasta la avena hasta obtener una textura más fina.",
+    "Añade la avena aplastada a un tazón y mezcla con agua caliente.",
+    "Deja reposar durante 10 minutos.",
+    "Forma pequeñas bolitas con la masa y aplánalas para hacer las galletas.",
+    "Coloca las galletas en una bandeja para hornear previamente engrasada o con papel de horno.",
+    "Hornea durante 12-15 minutos o hasta que las galletas estén doradas en los bordes.",
+    "Saca del horno y deja enfriar antes de disfrutar."
+  ],
+  "categories": [
+    "Recetas Fáciles",
+    "Recetas para Niños"
+  ],
+  "country": "Internacional",
+  "comments": [
+    
+  ],
+  "chef": {
+    "_id": "64f0aecef7d5e7dbdc923c7c",
+    "name": "Admin1",
+    "role": "admin",
+    "email": "admin1@admin.com",
+    "age": 50,
+    "password": "admin1123,",
+    "image": "admin1.jpg",
+    "recipes": [
+      
+    ],
+    "comments": [
+      
+    ],
+    "__v": 0
+  },
+  "image": [
+    "https://www.gourmet.cl/wp-content/uploads/2017/08/Galletas-de-avena.jpg"
+  ],
+  "likes": 0,
+  "__v": 0,
+  "createdAt": "2023-09-02T10:22:36.110Z",
+  "updatedAt": "2023-09-02T10:22:36.110Z"
+}
