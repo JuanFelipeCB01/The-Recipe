@@ -1,5 +1,9 @@
 import React from 'react'
+
 import FormCreateIngredient from '../../components/FormCreateIngredient/FormCreateIngredient'
+
+import CategorySlider from '../../components/CategorySlider/CategorySlider'
+
 
 
 function IngredientsPage(){
@@ -7,6 +11,7 @@ function IngredientsPage(){
         <div>
         <h1>IngredientsPage</h1>
         <FormCreateIngredient/>
+        <CategorySlider category="Vegetable"/>
         </div>
     )
 }
