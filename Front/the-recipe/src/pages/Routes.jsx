@@ -8,6 +8,7 @@ import RecipesDetailPage from "./RecipesDetailPage/RecipesDetailPage";
 import RecipesPage from "./RecipesPage/RecipesPage";
 import RegisterPage from "./RegisterPage/RegisterPage";
 import ProtectRoute from "./ProtectRoute";
+import ContactPage from "./ContactPage/ContactPage";
 
 
 export default function Routes() {
@@ -28,6 +29,9 @@ export default function Routes() {
       <Route path="/" element={<ProtectRoute />} 
         children= <Route path="/profile" element={<ProfilePage/>}/>
       />
+
+      <Route path="/contact" element={<ContactPage />} />
+
 
     </RoutesDom>
   );

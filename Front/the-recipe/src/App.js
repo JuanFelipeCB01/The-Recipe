@@ -11,10 +11,10 @@ function App() {
   return (
     <AuthProvider>
       <Router>
-        <div className="App">
-        <Navbar/>
+        <div>
+        <Navbar className="absolute"/>
         
-        <Routes />
+        <Routes className="mt-100" />
         </div>
       </Router> 
     </AuthProvider>      
