@@ -23,8 +23,8 @@ const arrayRecipes =
     "categories": ["Recetas Fáciles", "Recetas para Niños"],
     "country": "Internacional",
     "comments": [],
-    "chef": "64f0aecef7d5e7dbdc923c7c",
-    "image": "imagen_galletas.jpg",
+    "chef": ["64f0aecef7d5e7dbdc923c7c"],
+    "image": "https://www.gourmet.cl/wp-content/uploads/2017/08/Galletas-de-avena.jpg",
     "likes": 0
   },
   {
@@ -43,7 +43,7 @@ const arrayRecipes =
     "country": "Internacional",
     "comments": [],
     "chef": "64f0aecef7d5e7dbdc923c7c",
-    "image": "imagen_ensalada_manzana.jpg",
+    "image": "https://badun.nestle.es/imgserver/v1/80/1290x742/ensalada-de-manzanas-y-nueces.jpg",
     "likes": 0
   },
   {
@@ -69,7 +69,7 @@ const arrayRecipes =
     "country": "Internacional",
     "comments": [],
     "chef": "64f0aecef7d5e7dbdc923c7c",
-    "image": "imagen_salmon_parrilla.jpg",
+    "image": "https://comeryrascar.com/wp-content/uploads/2022/06/salmon-a-la-parrilla.jpg",
     "likes": 0
   },
   {
@@ -92,7 +92,7 @@ const arrayRecipes =
     "country": "Internacional",
     "comments": [],
     "chef": "64f0aecef7d5e7dbdc923c7c",
-    "image": "imagen_ensalada_espinacas.jpg",
+    "image": "https://imag.bonviveur.com/ensalada-de-espinacas.jpg",
     "likes": 0
   },
   {
@@ -117,7 +117,7 @@ const arrayRecipes =
     "country": "Internacional",
     "comments": [],
     "chef": "64f0aecef7d5e7dbdc923c7c",
-    "image": "imagen_huevos_revueltos.jpg",
+    "image": "https://unareceta.com/wp-content/uploads/2017/03/huevos-revueltos-americanos.jpg",
     "likes": 0
   },
   {
@@ -139,7 +139,7 @@ const arrayRecipes =
     "country": "Internacional",
     "comments": [],
     "chef": "64f0aecef7d5e7dbdc923c7c",
-    "image": "imagen_ensalada_quinua.jpg",
+    "image": "https://www.goya.com/media/4003/quinoa-salad.jpg?quality=80",
     "likes": 0
   },
   {
@@ -160,7 +160,7 @@ const arrayRecipes =
     "country": "Internacional",
     "comments": [],
     "chef": "64f0aecef7d5e7dbdc923c7c",
-    "image": "imagen_batido_platano_nueces.jpg",
+    "image": "https://eresdeportista.com/wp-content/uploads/2022/04/iStock-1157804873.jpg",
     "likes": 0
   },
   {
@@ -183,7 +183,7 @@ const arrayRecipes =
     "country": "Internacional",
     "comments": [],
     "chef": "64f0aecef7d5e7dbdc923c7c",
-    "image": "imagen_brocoli_vapor.jpg",
+    "image": "https://imag.bonviveur.com/brocoli-al-vapor-con-vinagreta-de-frutos-secos.jpg",
     "likes": 0
   },
   {
@@ -208,7 +208,7 @@ const arrayRecipes =
     "country": "Internacional",
     "comments": [],
     "chef": "64f0aecef7d5e7dbdc923c7c",
-    "image": "imagen_pechuga_pavo_parrilla.jpg",
+    "image": "https://www.crushpixel.com/big-static14/preview4/grilled-turkey-breast-with-parsley-1794647.jpg",
     "likes": 0
   },
   {
@@ -229,7 +229,7 @@ const arrayRecipes =
     "country": "Internacional",
     "comments": [],
     "chef": "64f0aecef7d5e7dbdc923c7c",
-    "image": "imagen_ensalada_pimiento_rojo.jpg",
+    "image": "https://recetasdecocina.elmundo.es/wp-content/uploads/2016/10/ensalada-de-pimientos-asados.jpg",
     "likes": 0
   },
   {
@@ -252,7 +252,7 @@ const arrayRecipes =
     "country": "Internacional",
     "comments": [],
     "chef": "64f0aecef7d5e7dbdc923c7c",
-    "image": "imagen_salsa_tomate_casera.jpg",
+    "image": "https://static.onecms.io/wp-content/uploads/sites/21/2016/10/29/salsa-casera-de-tomate-para-pasta-2000.jpg",
     "likes": 0
   },
   {
@@ -278,7 +278,7 @@ const arrayRecipes =
     "country": "Internacional",
     "comments": [],
     "chef": "64f0aecef7d5e7dbdc923c7c",
-    "image": "imagen_sopa_zanahoria.jpg",
+    "image": "https://s3.abcstatics.com/media/gurmesevilla/2009/07/437_cremazanahoria_1252493037.jpg",
     "likes": 0
   },
   {
@@ -302,7 +302,7 @@ const arrayRecipes =
     "country": "Internacional",
     "comments": [],
     "chef": "64f0aecef7d5e7dbdc923c7c",
-    "image": "imagen_tostadas_aguacate.jpg",
+    "image": "https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/9095F1E1-5407-4953-9228-49AC7AAA8288/Derivates/b183ba61-d10f-4b04-85a6-22a056371b7b.jpg",
     "likes": 0
   },
   {
@@ -324,7 +324,7 @@ const arrayRecipes =
     "country": "Internacional",
     "comments": [],
     "chef": "64f0aecef7d5e7dbdc923c7c",
-    "image": "imagen_pasta_pesto.jpg",
+    "image": "https://www.lavanguardia.com/files/og_thumbnail/uploads/2020/05/29/5ed11fb61d750.jpeg",
     "likes": 0
   },
   {
@@ -345,7 +345,7 @@ const arrayRecipes =
     "country": "Internacional",
     "comments": [],
     "chef": "64f0aecef7d5e7dbdc923c7c",
-    "image": "imagen_smoothie_frutas.jpg",
+    "image": "https://saposyprincesas.elmundo.es/wp-content/uploads/2017/05/smoothies-2253423_960_720.jpg",
     "likes": 0
   },
   {
@@ -370,7 +370,7 @@ const arrayRecipes =
     "country": "Internacional",
     "comments": [],
     "chef": "64f0aecef7d5e7dbdc923c7c",
-    "image": "imagen_pollo_curry.jpg",
+    "image": "https://i.blogs.es/9ea7a4/pollo_curry-copia/650_1200.jpg",
     "likes": 0
   },
   {
@@ -394,7 +394,7 @@ const arrayRecipes =
     "country": "Internacional",
     "comments": [],
     "chef": "64f0aecef7d5e7dbdc923c7c",
-    "image": "imagen_pasta_alfredo.jpg",
+    "image": "https://recetasdecocina.elmundo.es/wp-content/uploads/2021/06/pasta-alfredo.jpg",
     "likes": 0
   },
   {
@@ -419,7 +419,7 @@ const arrayRecipes =
     "country": "Internacional",
     "comments": [],
     "chef": "64f0aecef7d5e7dbdc923c7c",
-    "image": "imagen_ensalada_cesar.jpg",
+    "image": "https://comeryrascar.com/wp-content/uploads/2022/02/175_1.jpg",
     "likes": 0
   }
 ]
