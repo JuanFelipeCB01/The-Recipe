@@ -1,12 +1,18 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { axiosInstance } from "../../utils/axios.js";
+import { useAuth } from "../../shared/AuthContext.jsx";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const auth = useAuth();
+
+  if (auth.isAuthenticated){
+    return <Navigate to={"/profile"}/>
+  }
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -17,10 +23,14 @@ const Login = () => {
         password,
       });
       console.log(response.data);
-      const token = response.data.token;
-      localStorage.setItem("token", token);
+      // const token = response.data.token;
+      // localStorage.setItem("token", token);
+      // navigate(`/profile`);
 
-      navigate(`/profile`);
+      if(response.data.token){
+        auth.saveUser(response);
+        navigate(`/profile`);
+      };
 
     } catch (err) {
       setError("Invalid credentials. Please try again.");
