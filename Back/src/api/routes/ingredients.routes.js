@@ -6,7 +6,7 @@ const { isAdmin } = require('../../middlewares/auth');
 const ingredientRouter = express.Router();
 
 ingredientRouter.get("/", getIngredients);
-ingredientRouter.post("/", isAdmin, postIngredient);
+ingredientRouter.post("/", postIngredient);
 ingredientRouter.put("/:id", isAdmin, updateIngredient);
 ingredientRouter.delete("/:id", isAdmin, deleteIngredient);
 

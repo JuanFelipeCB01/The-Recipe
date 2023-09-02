@@ -1,9 +1,14 @@
 import React from 'react'
+import SliderMainHome from '../../components/SliderMainHome/SliderMainHome'
+import AboutUsHome from '../../components/AboutUsHome/AboutUsHome'
 
 
 function HomePage(){
     return (
-        <h1>HomePage</h1>
+        <div>
+        <SliderMainHome />
+        <AboutUsHome />
+        </div>
     )
 }
 

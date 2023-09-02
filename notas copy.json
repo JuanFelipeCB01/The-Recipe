@@ -1,0 +1,42 @@
+{
+    "_id": "64f3521789bafbeba4a6435e",
+    "name": "Prueba",
+    "description": "Prueba",
+    "ingredients": [
+      {
+        "ingredient": {
+          "_id": "64f1c05a310dc5167d557195",
+          "name": "Huevo",
+          "description": "El huevo es una fuente de proteínas de alta calidad y varios nutrientes esenciales.",
+          "category": "Meat",
+          "energeticValue": "155 kcal",
+          "totalFat": "10.6 g",
+          "saturatedFat": "3.3 g",
+          "carbs": "1.1 g",
+          "sugars": "1.1 g",
+          "sodium": "0.13 g",
+          "image": "https://imagenes.lainformacion.com/files/og_thumbnail_1900/uploads/imagenes/2022/10/14/huevos.jpeg",
+          "__v": 0
+        },
+        "quantity": "Prueba",
+        "_id": "64f3521789bafbeba4a6435f"
+      }
+    ],
+    "preparations": [
+      "Prueba",
+      "Prueba",
+      "Prueba"
+    ],
+    "categories": [
+      
+    ],
+    "comments": [
+      
+    ],
+    "image": [
+      
+    ],
+    "createdAt": "2023-09-02T15:17:43.104Z",
+    "updatedAt": "2023-09-02T15:17:43.104Z",
+    "__v": 0
+  }
