@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { axiosInstance } from "../../utils/axios.js";
-import {useNavigate} from "react-router-dom"
+import {Navigate, useNavigate} from "react-router-dom"
+import { useAuth } from "../../shared/AuthContext.jsx";
 
 function UserRegistrationForm() {
   const [email, setEmail] = useState("");
@@ -9,6 +10,11 @@ function UserRegistrationForm() {
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const navigate = useNavigate();
+  const auth = useAuth();
+
+  if (auth.isAuthenticated){
+    return <Navigate to={"/profile"}/>
+  }
 
   const handleRegistration = async (e) => {
     e.preventDefault();
@@ -23,7 +29,7 @@ function UserRegistrationForm() {
 
       if (response.status === 201) {
         setMessage("User registered successfully!");
-        navigate("/");
+        navigate("/login");
       }
     } catch (error) {
       if (error.response) {
@@ -36,10 +42,10 @@ function UserRegistrationForm() {
 
   return (
     <div>
-      <h2>User Registration</h2>
+      <h2>Registrarse</h2>
       <form onSubmit={handleRegistration}>
       <div>
-          <label>Name:</label>
+          <label>Nombre:</label>
           <input
             type="text"
             value={name}
@@ -48,7 +54,7 @@ function UserRegistrationForm() {
           />
         </div>
         <div>
-          <label>Age:</label>
+          <label>Edad:</label>
           <input
             type="number"
             value={age}
@@ -66,7 +72,7 @@ function UserRegistrationForm() {
           />
         </div>
         <div>
-          <label>Password:</label>
+          <label>Contraseña:</label>
           <input
             type="password"
             value={password}
@@ -74,7 +80,7 @@ function UserRegistrationForm() {
             required
           />
         </div>
-        <button type="submit">Register</button>
+        <button type="submit">Enviar</button>
       </form>
       {message && <p>{message}</p>}
     </div>

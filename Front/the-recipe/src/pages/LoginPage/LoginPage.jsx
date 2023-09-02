@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { axiosInstance } from "../../utils/axios.js";
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,7 +19,9 @@ const Login = () => {
       console.log(response.data);
       const token = response.data.token;
       localStorage.setItem("token", token);
-      navigate("/");
+
+      navigate(`/profile`);
+
     } catch (err) {
       setError("Invalid credentials. Please try again.");
     }
@@ -26,7 +29,7 @@ const Login = () => {
 
   return (
     <div>
-      <h2>Login</h2>
+      <h2>Iniciar sesión</h2>
       <form onSubmit={handleLogin}>
         <div>
           <label>Email:</label>
@@ -38,7 +41,7 @@ const Login = () => {
           />
         </div>
         <div>
-          <label>Password:</label>
+          <label>Contraseña:</label>
           <input
             type="password"
             value={password}
@@ -46,7 +49,7 @@ const Login = () => {
             required
           />
         </div>
-        <button type="submit">Login</button>
+        <button type="submit">Enviar</button>
       </form>
       {error && <p>{error}</p>}
 
