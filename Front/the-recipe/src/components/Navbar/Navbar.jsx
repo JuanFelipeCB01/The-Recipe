@@ -1,8 +1,18 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useAuth } from "../../shared/AuthContext";
 
 export default function NavBar() {
   const [navbar, setNavbar] = useState(false);
+  const navigate = useNavigate();
+  const auth = useAuth();
+
+  const logout = () =>{
+    auth.clearAuth();
+    navigate('/login');
+  };
 
   return (
     <nav
@@ -76,9 +86,11 @@ export default function NavBar() {
               <li className="text-white text-end hover:text-indigo-200">
               <NavLink to="/ingredients">Ingredients</NavLink>
               </li>
-              <li className="text-white text-end hover:text-indigo-200">
-              <NavLink to="/profile">Profile</NavLink>
-              </li>
+              {auth.isAuthenticated && (
+                <li className="text-white text-end hover:text-indigo-200">
+                <NavLink to="/profile">Profile</NavLink>
+                </li>
+              )}
               <li className="text-white text-end hover:text-indigo-200">
               <NavLink to="/contact">Contact</NavLink>
               </li>
@@ -87,23 +99,37 @@ export default function NavBar() {
             {navbar && (
               <div className="md:hidden space-y-4 mt-6 mb-3 mr-3 flex justify-end flex-col items-end">
                 {/* ... (enlaces adicionales para dispositivos móviles) */}
-                <NavLink to="/register"
-                  className="px-4 py-2 text-white bg-gray-600 rounded-md shadow hover:bg-gray-800 block w-fit "
-                >
-                  Register
+                {auth.isAuthenticated ? (
+                  <button onClick={logout}> 
+                  <FontAwesomeIcon icon={faArrowRightFromBracket} size="xl" style={{color: "#ffffff",}} />
+                  </button>
+                ) : (
+                  <>
+                  <NavLink to="/register"
+                    className="px-4 py-2 text-white bg-gray-600 rounded-md shadow hover:bg-gray-800 block w-fit "
+                  >
+                    Register
+                    </NavLink>
+                    <NavLink to="/login"
+                    className="px-4 py-2 text-white bg-gray-600 rounded-md shadow hover:bg-gray-800 block w-20 flex justify-center"
+                  >
+                    <p>Login</p>
                   </NavLink>
-                  <NavLink to="/login"
-                  className="px-4 py-2 text-white bg-gray-600 rounded-md shadow hover:bg-gray-800 block w-20 flex justify-center"
-                >
-                  <p>Login</p>
-                  </NavLink>
+                  </>
+                )}
               </div>
             )}
           </div>
         </div>
         <div className="hidden space-x-2 md:inline-block">
           {/* ... (enlaces para dispositivos de escritorio) */}
-          <NavLink to="/register"
+          {auth.isAuthenticated ? (
+            <button onClick={logout}> 
+            <FontAwesomeIcon icon={faArrowRightFromBracket} size="xl" style={{color: "#ffffff",}} />
+            </button>
+          ) : (
+            <>
+            <NavLink to="/register"
             className="px-4 py-2 text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
           >
             Register
@@ -113,6 +139,8 @@ export default function NavBar() {
           >
             Login
             </NavLink>
+            </>
+          )}
         </div>
       </div>
     </nav>
