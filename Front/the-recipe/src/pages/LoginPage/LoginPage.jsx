@@ -23,9 +23,6 @@ const Login = () => {
         password,
       });
       console.log(response.data);
-      // const token = response.data.token;
-      // localStorage.setItem("token", token);
-      // navigate(`/profile`);
 
       if(response.data.token){
         auth.saveUser(response);
