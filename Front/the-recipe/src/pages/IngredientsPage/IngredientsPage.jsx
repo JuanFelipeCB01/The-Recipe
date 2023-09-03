@@ -12,6 +12,9 @@ function IngredientsPage(){
         <h1>IngredientsPage</h1>
         <FormCreateIngredient/>
         <CategorySlider category="Vegetable"/>
+        <CategorySlider category="Fruit"/>
+        <CategorySlider category="Cereal"/>
+        <CategorySlider category="Meat"/>
         </div>
     )
 }
