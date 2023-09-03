@@ -4,6 +4,7 @@ import axios from 'axios'
 
 import 'swiper/css';
 import 'swiper/css/effect-creative';
+import '../CategorySlider/CategorySlider.css'
 
 import { EffectCreative } from 'swiper/modules';
 import { Link } from 'react-router-dom';
@@ -46,10 +47,9 @@ export default function CategorySlider({category}) {
         className="mySwiper">
             {ingredients?.map((ingredient) => (
                 <SwiperSlide> 
-                    <Link to={`/ingredients/${ ingredient._id}`} className='ingredient'>
-                        <h1>{ingredient.name}</h1>
-                        <img className='ingredient-image' src={ingredient.image} alt={ingredient.name}></img>
-                    </Link>    
+                    <Link to={`/ingredients/${ingredient._id}`} className='object-contain'>  
+                        <img src={ingredient.image} alt={ingredient.name}></img>
+                    </Link>   
                 </SwiperSlide>
             ))}
         </Swiper>
