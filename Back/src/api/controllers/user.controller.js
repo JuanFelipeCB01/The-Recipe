@@ -51,7 +51,7 @@ const login = async (req, res) => {
 const profile = async (req, res) => {
   try {
     const { id } = req.params;
-    const user = await User.findById(id).populate("recipes");
+    const user = await User.findById(id).populate("recipes").populate("comments");
     if (!user) {
       return res.status(404).json({ message: "User not found :(" });
     }

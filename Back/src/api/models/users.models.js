@@ -8,7 +8,7 @@ const userSchema = new Schema(
         email: {type:String, required: true, unique: true},
         age: {type:Number, required: true},
         password: {type:String, required: true},
-        image: {type:String, required: false},
+        image: {type:String, default: "https://t3.ftcdn.net/jpg/00/64/67/80/360_F_64678017_zUpiZFjj04cnLri7oADnyMH0XBYyQghG.jpg", required: false},
         recipes: [{ type: Schema.Types.ObjectId, required: false, ref: "recipes" }],
         comments: [{ type: Schema.Types.ObjectId, required: false, ref: "comments" }]
     },{

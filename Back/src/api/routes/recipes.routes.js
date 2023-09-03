@@ -6,7 +6,7 @@ const recipeRouter = express.Router();
 
 recipeRouter.get("/", getRecipes);
 recipeRouter.get("/:id", getRecipeById);
-recipeRouter.post("/", isAdmin, postRecipe);
+recipeRouter.post("/", postRecipe);
 recipeRouter.put("/:id", isAdmin, updateRecipe);
 recipeRouter.delete("/:id", isAdmin, deleteRecipe)
 

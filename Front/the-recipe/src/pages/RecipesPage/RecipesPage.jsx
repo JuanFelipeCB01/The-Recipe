@@ -1,8 +1,10 @@
+
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-function RecipesPage() {
+function RecipesPage(){
+  
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
@@ -106,6 +108,7 @@ function RecipesPage() {
       </div>
     </>
   );
+
 }
 
 export default RecipesPage;
