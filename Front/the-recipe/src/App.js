@@ -4,6 +4,7 @@ import { AuthProvider } from "./shared/AuthContext";
 
 import Routes from "./pages/Routes";
 import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
 
 
 function App() {
@@ -15,6 +16,8 @@ function App() {
         <Navbar className="absolute"/>
         
         <Routes className="mt-100" />
+
+        <Footer/>
         </div>
       </Router> 
     </AuthProvider>      
