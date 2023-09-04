@@ -9,7 +9,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 // import required modules
-import { EffectFade, Navigation, Pagination } from 'swiper/modules';
+import { Autoplay, EffectFade, Navigation, Pagination } from 'swiper/modules';
 
 
 export default function App() {
@@ -33,20 +33,20 @@ export default function App() {
         centeredSlides={true}
         effect={'fade'}
         autoplay={{
-          delay: 100,
+          delay: 7000,
           disableOnInteraction: false,
         }}
         pagination={{
           clickable: false,
         }}
         navigation
-        modules={[EffectFade, Navigation, Pagination]}
+        modules={[EffectFade, Navigation, Pagination, Autoplay]}
         className="mySwiper"
       >
         <SwiperSlide>
           <video autoPlay muted loop style={videoStyle} className="video-slide">
             <source
-              src="https://res.cloudinary.com/dc3pogjef/video/upload/v1693699170/Anuncio_para_Redes_Asia%CC%81tico_Restaurante_Entrega_a_Domicilio_d2nzsc.mp4"
+              src="https://res.cloudinary.com/dc3pogjef/video/upload/v1693791075/Anuncio_para_Redes_Asia%CC%81tico_Restaurante_Entrega_a_Domicilio_8_igxllh.mp4"
               type="video/mp4"
             />
           </video>
@@ -54,7 +54,15 @@ export default function App() {
         <SwiperSlide>
           <video autoPlay muted loop style={videoStyle} className="video-slide">
             <source
-              src="https://res.cloudinary.com/dc3pogjef/video/upload/v1693699170/Anuncio_para_Redes_Asia%CC%81tico_Restaurante_Entrega_a_Domicilio_d2nzsc.mp4"
+              src="https://res.cloudinary.com/dc3pogjef/video/upload/v1693791075/Anuncio_para_Redes_Asia%CC%81tico_Restaurante_Entrega_a_Domicilio_7_clwjri.mp4"
+              type="video/mp4"
+            />
+          </video>
+        </SwiperSlide>
+        <SwiperSlide>
+          <video autoPlay muted loop style={videoStyle} className="video-slide">
+            <source
+              src="https://res.cloudinary.com/dc3pogjef/video/upload/v1693791074/Anuncio_para_Redes_Asia%CC%81tico_Restaurante_Entrega_a_Domicilio_6_fbzmhp.mp4"
               type="video/mp4"
             />
           </video>
