@@ -3,7 +3,8 @@ import { useAuth } from "../../shared/AuthContext";
 
 const EditUserForm = ({ userId }) => {
   const { user, token } = useAuth();
-  console.log("userId:", user._id); // Agregamos el console.log aquí
+  console.log("userId:", user._id,);
+  console.log("Token:", token);
   const [userData, setUserData] = useState({
     name: "",
     email: "",
@@ -12,7 +13,7 @@ const EditUserForm = ({ userId }) => {
   });
 
   useEffect(() => {
-    // Realiza una solicitud GET para obtener los datos actuales del usuario
+
     const fetchUserData = async () => {
       try {
         const response = await fetch(`/api/user/${userId}`, {
@@ -24,11 +25,10 @@ const EditUserForm = ({ userId }) => {
         if (response.ok) {
           const userData = await response.json();
           setUserData(userData);
+          console.log("userData:", userData)
         } else {
-          // Manejar errores
         }
       } catch (error) {
-        // Manejar errores
       }
     };
 
