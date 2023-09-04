@@ -96,7 +96,7 @@ function IngredientsDetailPage() {
           </div>
         </div>
       </section>
-      {display&&<UpdateIngredient ingredient={ingredient}/>}
+      {display && ingredient && <UpdateIngredient ingredient={ingredient}/>}
       <div>
         <section class="text-gray-600 body-font">
           <div class="container px-5 pt-8 mx-auto">
