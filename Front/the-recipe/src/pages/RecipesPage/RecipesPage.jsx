@@ -1,8 +1,17 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import FormCreateRecipe from '../../components/FormCreateRecipe/FormCreateRecipe';
+import { useAuth } from "../../shared/AuthContext";
+
+
+
+
+
+  
 
 function RecipesPage() {
+
   const [recipes, setRecipes] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategories, setSelectedCategories] = useState([]);
@@ -10,6 +19,20 @@ function RecipesPage() {
   const [uniqueCategories, setUniqueCategories] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const recipesPerPage = 9; 
+  
+  
+  
+  const [mostrarFormulario, setMostrarFormulario] = useState(false);
+
+  const handleAgregarRecetaClick = () => {
+    setMostrarFormulario(!mostrarFormulario);
+  };
+
+  const auth = useAuth();
+  const { user } = useAuth();
+  
+  
+  
   // Cantidad de recetas por página
 
   useEffect(() => {
@@ -101,6 +124,8 @@ function RecipesPage() {
             </div>
           </div>
         </div>
+
+
 
         {/* Barra de búsqueda */}
         <section className="text-gray-600 body-font">
@@ -209,7 +234,22 @@ function RecipesPage() {
         </section>
       </div>
 
+
+
+      {auth.isAuthenticated && user.role === "admin" && (
+      <section class="text-gray-600 body-font">
+        <div class="container px-5 mx-auto">
+          <button onClick={handleAgregarRecetaClick} class="flex mx-auto mt-4 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg mr-0">+ Agregar Receta</button>
+        </div>
+      </section> )}
+
+
+      {mostrarFormulario && <FormCreateRecipe/>}
+
+
+
       {/* Resultados de recetas */}
+
       <div>
         <section className="text-gray-600 body-font">
           <div className="container px-5 pt-8 mx-auto">
