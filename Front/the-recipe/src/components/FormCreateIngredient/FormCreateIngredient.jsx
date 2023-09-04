@@ -21,7 +21,7 @@ function FormCreateIngredient() {
   const formStyle = {
     backgroundColor: 'grey',
     padding: '15px',
-    border: '1px',
+    border: '1px  ',
     borderRadius: '25px'
   }
 
