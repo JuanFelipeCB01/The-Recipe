@@ -8,6 +8,7 @@ export default function NavBar() {
   const [scrollReached20Percent, setScrollReached20Percent] = useState(false);
   const navigate = useNavigate();
   const auth = useAuth();
+
   const location = useLocation();
 
   const isHomeRoute = location.pathname === "/";
@@ -104,7 +105,7 @@ export default function NavBar() {
                 }`}
                 onClick={closeMenu}
               >
-                Register
+                Registrarse
               </NavLink>
               <NavLink
                 to="/login"
@@ -117,7 +118,7 @@ export default function NavBar() {
                 }`}
                 onClick={closeMenu}
               >
-                Login
+                Iniciar sesión
               </NavLink>
             </>
           )}
@@ -156,29 +157,29 @@ export default function NavBar() {
           <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium  rounded-lg bg-violet-500 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-transparent text-white gap-1">
             <li className="bg-transparent rounded-lg p-2 hover:bg-violet-700">
               <NavLink to="/" onClick={closeMenu}>
-                Home
+                Inicio
               </NavLink>
             </li>
             <li className="bg-transparent rounded-lg p-2 hover:bg-violet-700">
               <NavLink to="/recipes" onClick={closeMenu}>
-                Recipes
+                Recetas
               </NavLink>
             </li>
             <li className="bg-transparent rounded-lg p-2 hover:bg-violet-700">
               <NavLink to="/ingredients" onClick={closeMenu}>
-                Ingredients
+                Ingredientes
               </NavLink>
             </li >
             {auth.isAuthenticated && (
               <li className="bg-transparent rounded-lg p-2 hover:bg-violet-700">
                 <NavLink to="/profile" onClick={closeMenu}>
-                  Profile
+                  Perfil
                 </NavLink>{" "}
               </li>
             )}
             <li className="bg-transparent rounded-lg p-2 hover:bg-violet-700">
               <NavLink to="/contact" onClick={closeMenu}>
-                Contact
+                Contactar
               </NavLink>
             </li>
           </ul>
