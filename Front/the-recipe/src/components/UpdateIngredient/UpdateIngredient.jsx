@@ -43,7 +43,7 @@ export default function UpdateIngredient({ingredient}) {
           }
         } catch (error) {
           if (error.response) {
-            setMessage(error.response.data.message);
+            setMessage(error.response.data.message);        
           } else {
             setMessage("An error occurred. Please try again later.");
           }
