@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import FormCreateIngredient from '../../components/FormCreateIngredient/FormCreateIngredient'
 import CategorySlider from '../../components/CategorySlider/CategorySlider'
-
 import './IngrdientPage.css'
 import { useAuth } from '../../shared/AuthContext';
 
@@ -18,8 +17,21 @@ function IngredientsPage(){
     }
 
     return (
-        <div className='ingredients'>
-            <h1 className='ingredients-title'>Los ingredientes de nuestras recetas:</h1>
+<>
+        <div className="pt-16">
+            <div className="container px-5 pt-8 mx-auto">
+                <div className="text-center">
+                    <h1 className="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4">
+                    Ingredientes
+                    </h1>
+                    <div className="flex mt-6 justify-center">
+                    <div className="w-16 h-1 rounded-full bg-indigo-500 inline-flex"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div className='ingredients pt-16'>
             {auth.isAuthenticated && user.role === "admin" && (
                 <section class="text-gray-600 body-font">
                     <div class="container px-5 mx-auto">
@@ -28,6 +40,8 @@ function IngredientsPage(){
                 </section>
             )}
             {display && <div><FormCreateIngredient/></div>}
+
+
             <div className='ingredients-slider'>
                 <CategorySlider category="Vegetable"/>
             </div>
@@ -47,7 +61,27 @@ function IngredientsPage(){
                 <CategorySlider category="Fungus"/>
             </div>
         </div>
+
+        <section class="text-gray-600 body-font">
+  <div class="container px-5 py-24 mx-auto">
+    
+
+    <div class="flex flex-wrap -m-4">
+      <div class="xl:w-1/3 md:w-1/2 p-4">
+        <div class="bg-gray-100 p-6 rounded-lg">
+                <CategorySlider category="Fruit"/>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+        </>
     )
 }
 
+
 export default IngredientsPage
+

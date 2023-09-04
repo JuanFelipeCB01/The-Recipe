@@ -1,10 +1,12 @@
 import React, { useRef, useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-cards";
 import { EffectCards } from "swiper/modules";
+import { useAuth } from "../../shared/AuthContext";
+import UpdateRecipe from "../../components/UpdateRecipe/UpdateRecipe";
 
 const customStyles = `
   .swiper-3d .swiper-slide-shadow {
@@ -15,6 +17,33 @@ const customStyles = `
 function RecipeDetailPage() {
   const { id } = useParams();
   const [recipe, setRecipe] = useState(null);
+  const auth = useAuth();
+  const { user } = useAuth();
+  const [ message, setMessage ] = useState();
+  const navigate = useNavigate();
+  const [displayForm, setDisplayForm] = useState(false);
+
+  const display = () =>{
+    setDisplayForm(!displayForm);
+  }
+
+  const handleDeleteRecipe = async (e) => { 
+    e.preventDefault();
+     try {
+      const response = await axios.delete(`http://localhost:5020/recipes/${id}`, {   
+      })
+      if (response.status === 200) {
+        setMessage("Recipe deleted");
+        navigate("/recipes");
+      }
+    } catch (error) {
+      if (error.response) {
+        setMessage(error.response.data.message);
+      } else {
+        setMessage("An error occurred. Please try again later.");
+      }
+    }
+  }
 
   useEffect(() => {
     async function fetchRecipe() {
@@ -36,17 +65,18 @@ function RecipeDetailPage() {
 
   return (
     <>
-
-    <section class="text-gray-600 body-font pt-16">
-    <div class="container px-5 pt-8 mx-auto">
-        <div class="text-center">
-        <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4">{recipe.name}</h1>
-        <div class="flex mt-6 justify-center">
-            <div class="w-16 h-1 rounded-full bg-indigo-500 inline-flex"></div>
+      <section class="text-gray-600 body-font pt-16">
+        <div class="container px-5 pt-8 mx-auto">
+          <div class="text-center">
+            <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4">
+              {recipe.name}
+            </h1>
+            <div class="flex mt-6 justify-center">
+              <div class="w-16 h-1 rounded-full bg-indigo-500 inline-flex"></div>
+            </div>
+          </div>
         </div>
-        </div>
-    </div>
-    </section>
+      </section>
 
       <section class="text-gray-600 body-font">
         <div class="container px-5 pt-4 mx-auto flex flex-col">
@@ -93,7 +123,6 @@ function RecipeDetailPage() {
                         ))}
                     </ul>
                   </p>
-
                 </div>
               </div>
               <div class="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
@@ -114,7 +143,21 @@ function RecipeDetailPage() {
                   </ul>
                 </p>
 
-                <div className="text-right">
+                
+
+                <div className="flex text-right items-center justify-between">
+
+                {auth.isAuthenticated && user.role === "admin" && (
+                  <div>
+                    <button onClick={display} class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg py-2 px-4">
+                      Actualizar
+                    </button>
+                    <button onClick={handleDeleteRecipe} class="ml-4 inline-flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-lg py-2 px-4">
+                      Borrar
+                    </button>
+                  </div>
+                )}                
+                
                   <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded my-5">
                     <Link
                       to={`/recipes`}
@@ -134,6 +177,7 @@ function RecipeDetailPage() {
                       </svg>
                     </Link>
                   </button>
+                  
                 </div>
               </div>
             </div>
@@ -142,39 +186,51 @@ function RecipeDetailPage() {
       </section>
 
 <>
-      <div className="flex justify-center p-10">
-        <section class="text-gray-600 body-font">
+    {displayForm && <UpdateRecipe recipe={recipe}/>}
+</>
+
+      <>
+        <div className="flex justify-center p-10">
+          <section class="text-gray-600 body-font">
             <div class="container px-5 pt-8 mx-auto">
-                <div class="text-center">
-                <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4">Comentarios</h1>
+              <div class="text-center">
+                <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4">
+                  Comentarios
+                </h1>
                 <div class="flex mt-6 justify-center">
-                    <div class="w-16 h-1 rounded-full bg-indigo-500 inline-flex"></div>
+                  <div class="w-16 h-1 rounded-full bg-indigo-500 inline-flex"></div>
                 </div>
-                </div>
+              </div>
             </div>
-        </section>
-      </div>
-      <style>{customStyles}</style>
-      <Swiper effect={"cards"} grabCursor={true}  modules={[EffectCards]} className="mySwiper">
-      {recipe.comments.length && recipe.comments?.map((comment) => (
-            <SwiperSlide key={recipe._id}>
-              <section className="text-gray-600 body-font">
-                <div className="container px-5 mx-auto">
-                  <div className="flex justify-center flex-wrap -m-4">
-                    <div className="p-4 w-2/4">
-                      <div className="h-full rounded-lg overflow-hidden border-solid border-2 border-sky-500 shadow-xl">
-                        <img
-                          className="lg:h-48 md:h-36 w-full object-cover object-center"
-                          src={recipe.chef.image}
-                          alt={recipe.chef.name}
-                        ></img>
-                        <div className="p-6 bg-white">
-                          <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
-                            {recipe.chef.name}
-                          </h2>
-                          <p className="leading-relaxed mb-3">
-                            {comment.content}
-                          </p>
+          </section>
+        </div>
+        <style>{customStyles}</style>
+        <Swiper
+          effect={"cards"}
+          grabCursor={true}
+          modules={[EffectCards]}
+          className="mySwiper"
+        >
+          {recipe.comments.length &&
+            recipe.comments?.map((comment) => (
+              <SwiperSlide key={recipe._id}>
+                <section className="text-gray-600 body-font">
+                  <div className="container px-5 mx-auto">
+                    <div className="flex justify-center flex-wrap -m-4">
+                      <div className="p-4 w-2/4">
+                        <div className="h-full rounded-lg overflow-hidden border-solid border-2 border-sky-500 shadow-xl">
+                          <img
+                            className="lg:h-48 md:h-36 w-full object-cover object-center"
+                            src={recipe.chef.image}
+                            alt={recipe.chef.name}
+                          ></img>
+                          <div className="p-6 bg-white">
+                            <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
+                              {recipe.chef.name}
+                            </h2>
+                            <p className="leading-relaxed mb-3">
+                              {comment.content}
+                            </p>
                             <span className="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
                               <svg
                                 className="w-4 h-4 mr-1"
@@ -190,19 +246,16 @@ function RecipeDetailPage() {
                               </svg>
                               {comment.likes} Likes
                             </span>
-                            
-                          
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </section>
-            </SwiperSlide>
-          ))}
-      </Swiper>
-
-        </>
+                </section>
+              </SwiperSlide>
+            ))}
+        </Swiper>
+      </>
     </>
   );
 }
