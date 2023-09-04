@@ -1,66 +1,128 @@
-{
-  "_id": "64f30cec944876e45d70d0fa",
-  "name": "Galletas de Avena",
-  "description": "Deliciosas galletas de avena ideales para un snack saludable.",
-  "ingredients": [
-    {
-      "ingredient": {
-        "_id": "64f1c05a310dc5167d557191",
-        "name": "Avena",
-        "description": "La avena es un grano saludable y versátil, rico en fibra y nutrientes esenciales.",
-        "category": "Cereal",
-        "energeticValue": "389 kcal",
-        "totalFat": "6.9 g",
-        "saturatedFat": "1.2 g",
-        "carbs": "67.7 g",
-        "sugars": "0.99 g",
-        "sodium": "0.01 g",
-        "image": "https://www.recetasnestlecam.com/sites/default/files/styles/crop_article_banner_desktop_nes/public/2022-04/avena.jpg.jpg?itok=SgCou3hU",
-        "__v": 0
-      },
-      "quantity": "1 taza",
-      "_id": "64f30cec944876e45d70d0fb"
-    }
-  ],
-  "preparations": [
-    "Precalienta el horno a 180°C.",
-    "En un tazón, aplasta la avena hasta obtener una textura más fina.",
-    "Añade la avena aplastada a un tazón y mezcla con agua caliente.",
-    "Deja reposar durante 10 minutos.",
-    "Forma pequeñas bolitas con la masa y aplánalas para hacer las galletas.",
-    "Coloca las galletas en una bandeja para hornear previamente engrasada o con papel de horno.",
-    "Hornea durante 12-15 minutos o hasta que las galletas estén doradas en los bordes.",
-    "Saca del horno y deja enfriar antes de disfrutar."
-  ],
-  "categories": [
-    "Recetas Fáciles",
-    "Recetas para Niños"
-  ],
-  "country": "Internacional",
-  "comments": [
-    
-  ],
-  "chef": {
-    "_id": "64f0aecef7d5e7dbdc923c7c",
-    "name": "Admin1",
-    "role": "admin",
-    "email": "admin1@admin.com",
-    "age": 50,
-    "password": "admin1123,",
-    "image": "admin1.jpg",
-    "recipes": [
-      
-    ],
-    "comments": [
-      
-    ],
-    "__v": 0
-  },
-  "image": [
-    "https://www.gourmet.cl/wp-content/uploads/2017/08/Galletas-de-avena.jpg"
-  ],
-  "likes": 0,
-  "__v": 0,
-  "createdAt": "2023-09-02T10:22:36.110Z",
-  "updatedAt": "2023-09-02T10:22:36.110Z"
-}
+ //     <nav
+    //       className={`w-full bg-purple-500 shadow top-0`}
+    //       style={{ zIndex: 1000, height: 72 }} // Asegura que el menú esté por encima del contenido
+    //     >
+    //       <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8 relative">
+    //         <div>
+    //           <div className="flex items-center justify-between py-3 md:py-5 md:block">
+    //             <a href="javascript:void(0)">
+    //               <h2 className="text-2xl font-bold text-white">LOGO</h2>
+    //             </a>
+    //             <div className="md:hidden">
+    //               <button
+    //                 className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
+    //                 onClick={() => setNavbar(!navbar)}
+    //               >
+    //                 {navbar ? (
+    //                   <svg
+    //                     xmlns="http://www.w3.org/2000/svg"
+    //                     className="w-6 h-6 text-white"
+    //                     viewBox="0 0 20 20"
+    //                     fill="currentColor"
+    //                   >
+    //                     {/* ... (iconos de cierre de menú) */}
+    //                     <path
+    //                       fillRule="evenodd"
+    //                       d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+    //                       clipRule="evenodd"
+    //                     />
+    //                   </svg>
+    //                 ) : (
+    //                   <svg
+    //                     xmlns="http://www.w3.org/2000/svg"
+    //                     className="w-6 h-6 text-white"
+    //                     fill="none"
+    //                     viewBox="0 0 24 24"
+    //                     stroke="currentColor"
+    //                     strokeWidth={2}
+    //                   >
+    //                     {/* ... (iconos de hamburguesa) */}
+    //                     <path
+    //                       strokeLinecap="round"
+    //                       strokeLinejoin="round"
+    //                       d="M4 6h16M4 12h16M4 18h16"
+    //                     />
+
+    //                   </svg>
+    //                 )}
+    //               </button>
+    //             </div>
+    //           </div>
+    //         </div>
+    //         <div>
+    //         <div
+    //   className={`absolute top-full right-0 bg-purple-500 z-10 transform z-900 w-2/6 rounded-lg ${
+    //     navbar
+    //       ? "translate-x-0 opacity-100 transition-transform ease-in"
+    //       : "translate-x-full opacity-0 transition-transform ease-in"
+    //   } md:relative md:scale-y-100 md:opacity-100 md:flex md:space-x-6 md:bg-transparent md:transform-none md:space-y-0`}
+    // >
+    //             <ul className="items-center justify- space-y-8 md:flex md:space-x-6 md:space-y-0 mr-4">
+    //               {/* ... (elementos del menú) */}
+    //               <li className="text-white text-end hover:text-indigo-200">
+    //               <NavLink to="/">Home</NavLink>
+    //               </li>
+    //               <li className="text-white text-end hover:text-indigo-200">
+    //               <NavLink to="/recipes">Recipes</NavLink>
+    //               </li>
+    //               <li className="text-white text-end hover:text-indigo-200">
+    //               <NavLink to="/ingredients">Ingredients</NavLink>
+    //               </li>
+    //               {auth.isAuthenticated && (
+    //                 <li className="text-white text-end hover:text-indigo-200">
+    //                 <NavLink to="/profile">Profile</NavLink>
+    //                 </li>
+    //               )}
+    //               <li className="text-white text-end hover:text-indigo-200">
+    //               <NavLink to="/contact">Contact</NavLink>
+    //               </li>
+
+    //             </ul>
+    //             {navbar && (
+    //               <div className="md:hidden space-y-4 mt-6 mb-3 mr-3 flex justify-end flex-col items-end">
+    //                 {/* ... (enlaces adicionales para dispositivos móviles) */}
+    //                 {auth.isAuthenticated ? (
+    //                   <button onClick={logout}>
+    //                   <FontAwesomeIcon icon={faArrowRightFromBracket} size="xl" style={{color: "#ffffff",}} />
+    //                   </button>
+    //                 ) : (
+    //                   <>
+    //                   <NavLink to="/register"
+    //                     className="px-4 py-2 text-white bg-gray-600 rounded-md shadow hover:bg-gray-800 block w-fit "
+    //                   >
+    //                     Register
+    //                     </NavLink>
+    //                     <NavLink to="/login"
+    //                     className="px-4 py-2 text-white bg-gray-600 rounded-md shadow hover:bg-gray-800 block w-20 flex justify-center"
+    //                   >
+    //                     <p>Login</p>
+    //                   </NavLink>
+    //                   </>
+    //                 )}
+    //               </div>
+    //             )}
+    //           </div>
+    //         </div>
+    //         <div className="hidden space-x-2 md:inline-block">
+    //           {/* ... (enlaces para dispositivos de escritorio) */}
+    //           {auth.isAuthenticated ? (
+    //             <button onClick={logout}>
+    //             <FontAwesomeIcon icon={faArrowRightFromBracket} size="xl" style={{color: "#ffffff",}} />
+    //             </button>
+    //           ) : (
+    //             <>
+    //             <NavLink to="/register"
+    //             className="px-4 py-2 text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
+    //           >
+    //             Register
+    //             </NavLink>
+    //             <NavLink to="/login"
+    //             className="px-4 py-2 text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
+    //           >
+    //             Login
+    //             </NavLink>
+    //             </>
+    //           )}
+    //         </div>
+    //       </div>
+    //     </nav>
