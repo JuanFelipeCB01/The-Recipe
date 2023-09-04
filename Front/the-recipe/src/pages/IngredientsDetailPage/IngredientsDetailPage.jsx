@@ -7,41 +7,32 @@ function IngredientsDetailPage() {
   const [ingredient, setIngredient] = useState();
   const [recipes, setRecipes] = useState([]);
 
-//   const getIngredient = async () => {
-//     try {
-//       const item = await axios.get(`http://localhost:5020/ingredients/${id}`);
-//       setIngredient(item.data);
-//     } catch (error) {
-//       console.error(500);
-//     }   
-//   };
-
   const getRecipes = async () => {
     
     try {
         const item = await axios.get(`http://localhost:5020/ingredients/${id}`);
         setIngredient(item.data);
-        const array = await axios.get('http://localhost:5020/recipes');
-        const filteredRecipes = array.data.filter((recipe) => {
-          return recipe.ingredients.some((recipeIngredient) => {
-            console.log('1', recipeIngredient.ingredient.name)
-            console.log('2', item.data.name)
-            return recipeIngredient.ingredient.name === item.data.name;
-          });
+        const { data } = await axios.get('http://localhost:5020/recipes');
+        const filteredRecipes = data.filter((recipe) => {
+          return recipe?.ingredients?.some((recipeIngredient) => {
+            // console.log('1', recipeIngredient.ingredient.name)
+            // console.log('2', item.data.name)
+            // console.log('5', recipeIngredient.ingredient.name === item.data.name)
+            return recipeIngredient?.ingredient?.name === item?.data?.name;
+            })
         });
 
+        console.log('45', filteredRecipes)
         setRecipes(filteredRecipes); 
-        console.log(filteredRecipes)
+        
     } catch (error) {
         console.error(500); 
     }
   };
 
   useEffect(() => {
-    // getIngredient();
     getRecipes();
-    console.log(recipes)
-  }, [recipes]);
+  }, []);
 
   return (
     <div>
@@ -66,7 +57,6 @@ function IngredientsDetailPage() {
                     </div> */}
           </div>
           <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-          {recipes}
             <img
               class="object-cover object-center rounded"
               alt="hero"
