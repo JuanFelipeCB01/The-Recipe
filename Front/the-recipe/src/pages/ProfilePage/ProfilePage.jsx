@@ -1,9 +1,10 @@
 import React from "react";
 import { useAuth } from "../../shared/AuthContext";
-
+import FormEditUser from "../../components/FormEditUser/FormEditUser";
 
 export default function ProfilePage() {
   const { user } = useAuth();
+  console.log(user);
 
   return (
   <>
@@ -68,4 +69,4 @@ export default function ProfilePage() {
     </section> 
   </>
   );
-};
+}

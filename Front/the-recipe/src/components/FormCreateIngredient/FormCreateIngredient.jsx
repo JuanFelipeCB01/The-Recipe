@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { axiosInstance } from "../../utils/axios.js";
-import {useNavigate} from "react-router-dom"
+import {useNavigate} from "react-router-dom";
+import Form from 'react-bootstrap/Form';
 
 function FormCreateIngredient() {
   const [name, setName] = useState("");
+  const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
   const [energeticValue, setEnergeticValue] = useState("");
   const [totalFat, setTotalFat] = useState("");
@@ -15,6 +17,13 @@ function FormCreateIngredient() {
   const [message, setMessage] = useState("");
 
   const navigate = useNavigate();
+
+  const formStyle = {
+    backgroundColor: 'grey',
+    padding: '15px',
+    border: '1px',
+    borderRadius: '25px'
+  }
 
   const handleRegistration = async (e) => {
     e.preventDefault();
@@ -33,7 +42,7 @@ function FormCreateIngredient() {
       })
 
       if (response.status === 200) {
-        setMessage("User registered successfully!");
+        setMessage("UIngrdient added successfully!");
         navigate("/ingredients");
       }
     } catch (error) {
@@ -48,10 +57,11 @@ function FormCreateIngredient() {
   return (
     <div>
       <h2>Add Ingredient</h2>
-      <form onSubmit={handleRegistration}>
+      <form style={formStyle} 
+      onSubmit={handleRegistration}>
       {/* Name */}
       <div>
-          <label>Name:</label>
+          <label>Nombre:</label>
           <input
             type="text"
             value={name}
@@ -59,9 +69,24 @@ function FormCreateIngredient() {
             required
           />
         </div>
+        <div>
+        <label>Categoría:</label>
+          <Form.Select aria-label="Default select example"
+            type="text"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            required
+          >
+            <option>Vegetable</option>
+            <option>Fruit</option>
+            <option>Meat</option>
+            <option>Cereal</option>
+            <option>Oil</option>
+          </Form.Select>
+        </div>
         {/* Description */}
         <div>
-          <label>Description:</label>
+          <label>Descripción:</label>
           <input
             type="text"
             value={description}
@@ -71,7 +96,7 @@ function FormCreateIngredient() {
         </div>
         {/* Energetic Value */}
         <div>
-          <label>Energetic Value</label>
+          <label>Valor energético:</label>
           <input
             type="text"
             value={energeticValue}
@@ -81,7 +106,7 @@ function FormCreateIngredient() {
         </div>
         {/* Total Fat */}
         <div>
-          <label>Total Fat:</label>
+          <label>Grasas:</label>
           <input
             type="text"
             value={totalFat}
@@ -91,7 +116,7 @@ function FormCreateIngredient() {
         </div>
         {/* Saturated Fat */}
         <div>
-          <label>Saturated Fat:</label>
+          <label>Grasas saturadas:</label>
           <input
             type="text"
             value={saturatedFat}
@@ -101,7 +126,7 @@ function FormCreateIngredient() {
         </div>
         {/* Carbs */}
         <div>
-          <label>Carbs:</label>
+          <label>Carbohidratos:</label>
           <input
             type="text"
             value={carbs}
@@ -111,7 +136,7 @@ function FormCreateIngredient() {
         </div>
         {/* Sugars */}
         <div>
-          <label>Sugars:</label>
+          <label>Azúcares:</label>
           <input
             type="text"
             value={sugars}
@@ -121,7 +146,7 @@ function FormCreateIngredient() {
         </div>
         {/* Sodium */}
         <div>
-          <label>Sodium:</label>
+          <label>Sodio:</label>
           <input
             type="text"
             value={sodium}
@@ -131,7 +156,7 @@ function FormCreateIngredient() {
         </div>
         {/* Image */}
         <div>
-          <label>Image:</label>
+          <label>Imagen:</label>
           <input
             type="text"
             value={image}

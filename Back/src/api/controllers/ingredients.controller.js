@@ -2,12 +2,23 @@ const Ingredient = require("../models/ingredients.models");
 
 const getIngredients = async (req, res) => {
   try {
-    const allIngredients = await Ingredient.find();
+    const { id } = req.params;
+    const allIngredients = await Ingredient.find(id);
     return res.status(200).json(allIngredients);
   } catch (error) {
     return res.status(500).json(error);
   }
 };
+
+const getIngredientById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const ingredient = await Ingredient.findById(id);
+    return res.status(200).json(ingredient)
+  } catch (error) {
+    return res.status(500).json(error);
+  }
+}
 
 const postIngredient = async (req, res) => {
   try {
@@ -54,6 +65,7 @@ const deleteIngredient = async (req, res) => {
 
 module.exports = {
   getIngredients,
+  getIngredientById,
   postIngredient,
   updateIngredient,
   deleteIngredient,
