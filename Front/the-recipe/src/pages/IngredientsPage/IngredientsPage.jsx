@@ -34,7 +34,7 @@ function IngredientsPage() {
 
   return (
     <>
-      <div className="ingredients shadow-xl mt-16">
+      <div className="ingredients shadow-xl mt-16 pb-16">
         <div className="container px-5 pt-8 mx-auto">
           <div className="text-center">
             <h1 className="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4">
@@ -81,7 +81,7 @@ function IngredientsPage() {
         </div>
       </div>
 
-      <section class="text-gray-600 body-font">
+      {/* <section class="text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto">
           <div class="flex flex-wrap -m-4">
             <div class="xl:w-1/3 md:w-1/2 p-4">
@@ -91,7 +91,7 @@ function IngredientsPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   );
 }
