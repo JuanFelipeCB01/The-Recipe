@@ -8,7 +8,7 @@ const ingredientRouter = express.Router();
 ingredientRouter.get("/", getIngredients);
 ingredientRouter.get("/:id", getIngredientById);
 ingredientRouter.post("/", postIngredient);
-ingredientRouter.put("/:id", isAdmin, updateIngredient);
-ingredientRouter.delete("/:id", isAdmin, deleteIngredient);
+ingredientRouter.put("/:id", updateIngredient);
+ingredientRouter.delete("/:id", deleteIngredient);
 
 module.exports = ingredientRouter;
