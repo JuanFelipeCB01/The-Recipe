@@ -37,16 +37,18 @@ function RecipeDetailPage() {
   return (
     <>
 
-    <section class="text-gray-600 body-font pt-16">
-    <div class="container px-5 pt-8 mx-auto">
-        <div class="text-center">
-        <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4">{recipe.name}</h1>
-        <div class="flex mt-6 justify-center">
-            <div class="w-16 h-1 rounded-full bg-indigo-500 inline-flex"></div>
+      <section class="text-gray-600 body-font pt-16">
+        <div class="container px-5 pt-8 mx-auto">
+          <div class="text-center">
+            <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4">
+              {recipe.name}
+            </h1>
+            <div class="flex mt-6 justify-center">
+              <div class="w-16 h-1 rounded-full bg-indigo-500 inline-flex"></div>
+            </div>
+          </div>
         </div>
-        </div>
-    </div>
-    </section>
+      </section>
 
       <section class="text-gray-600 body-font">
         <div class="container px-5 pt-4 mx-auto flex flex-col">
@@ -93,7 +95,6 @@ function RecipeDetailPage() {
                         ))}
                     </ul>
                   </p>
-
                 </div>
               </div>
               <div class="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
@@ -141,40 +142,48 @@ function RecipeDetailPage() {
         </div>
       </section>
 
-<>
-      <div className="flex justify-center p-10">
-        <section class="text-gray-600 body-font">
+      <>
+        <div className="flex justify-center p-10">
+          <section class="text-gray-600 body-font">
             <div class="container px-5 pt-8 mx-auto">
-                <div class="text-center">
-                <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4">Comentarios</h1>
+              <div class="text-center">
+                <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4">
+                  Comentarios
+                </h1>
                 <div class="flex mt-6 justify-center">
-                    <div class="w-16 h-1 rounded-full bg-indigo-500 inline-flex"></div>
+                  <div class="w-16 h-1 rounded-full bg-indigo-500 inline-flex"></div>
                 </div>
-                </div>
+              </div>
             </div>
-        </section>
-      </div>
-      <style>{customStyles}</style>
-      <Swiper effect={"cards"} grabCursor={true}  modules={[EffectCards]} className="mySwiper">
-      {recipe.comments.length && recipe.comments?.map((comment) => (
-            <SwiperSlide key={recipe._id}>
-              <section className="text-gray-600 body-font">
-                <div className="container px-5 mx-auto">
-                  <div className="flex justify-center flex-wrap -m-4">
-                    <div className="p-4 w-2/4">
-                      <div className="h-full rounded-lg overflow-hidden border-solid border-2 border-sky-500 shadow-xl">
-                        <img
-                          className="lg:h-48 md:h-36 w-full object-cover object-center"
-                          src={recipe.chef.image}
-                          alt={recipe.chef.name}
-                        ></img>
-                        <div className="p-6 bg-white">
-                          <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
-                            {recipe.chef.name}
-                          </h2>
-                          <p className="leading-relaxed mb-3">
-                            {comment.content}
-                          </p>
+          </section>
+        </div>
+        <style>{customStyles}</style>
+        <Swiper
+          effect={"cards"}
+          grabCursor={true}
+          modules={[EffectCards]}
+          className="mySwiper"
+        >
+          {recipe.comments.length &&
+            recipe.comments?.map((comment) => (
+              <SwiperSlide key={recipe._id}>
+                <section className="text-gray-600 body-font">
+                  <div className="container px-5 mx-auto">
+                    <div className="flex justify-center flex-wrap -m-4">
+                      <div className="p-4 w-2/4">
+                        <div className="h-full rounded-lg overflow-hidden border-solid border-2 border-sky-500 shadow-xl">
+                          <img
+                            className="lg:h-48 md:h-36 w-full object-cover object-center"
+                            src={recipe.chef.image}
+                            alt={recipe.chef.name}
+                          ></img>
+                          <div className="p-6 bg-white">
+                            <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
+                              {recipe.chef.name}
+                            </h2>
+                            <p className="leading-relaxed mb-3">
+                              {comment.content}
+                            </p>
                             <span className="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
                               <svg
                                 className="w-4 h-4 mr-1"
@@ -190,19 +199,16 @@ function RecipeDetailPage() {
                               </svg>
                               {comment.likes} Likes
                             </span>
-                            
-                          
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </section>
-            </SwiperSlide>
-          ))}
-      </Swiper>
-
-        </>
+                </section>
+              </SwiperSlide>
+            ))}
+        </Swiper>
+      </>
     </>
   );
 }

@@ -35,7 +35,7 @@ function UserRegistrationForm() {
   };
 
   return (
-    <div>
+    <div className="p-16">
       <div class="flex justify-center">
         <div class="flex flex-col justify-center">
           <div class="flex flex-col md:flex-row max-w-7xl justify-center items-center ">
