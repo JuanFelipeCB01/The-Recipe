@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { axiosInstance } from "../../utils/axios.js";
 import { useAuth } from "../../shared/AuthContext.jsx";
 
@@ -9,10 +9,6 @@ const Login = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const auth = useAuth();
-
-  if (auth.isAuthenticated){
-    return <Navigate to={"/profile"}/>
-  }
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -24,42 +20,18 @@ const Login = () => {
       });
       console.log(response.data);
 
-      if(response.data.token){
+       if(response.data.token){
         auth.saveUser(response);
         navigate(`/profile`);
       };
 
     } catch (err) {
-      setError("Invalid credentials. Please try again.");
+      setError("Email o contraseña incorrectos.");
     }
   };
 
   return (
     <div>
-      <h2>Iniciar sesión</h2>
-      <form onSubmit={handleLogin}>
-        <div>
-          <label>Email:</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Contraseña:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">Enviar</button>
-      </form>
-      {error && <p>{error}</p>}
-
       <div class="flex justify-center">
         <div class="flex flex-col justify-center">
           <div class="flex flex-col md:flex-row max-w-7xl justify-center items-center ">
@@ -72,6 +44,18 @@ const Login = () => {
                       class="text-5xl text-fuchsia-600"
                     ></ion-icon>
                     <div class="flex flex-col">
+                    <div class="mb-16">
+                      <section class="text-gray-600 body-font">
+                        <div class="container px-5  mx-auto">
+                          <div class="text-center">
+                            <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4">Accede a tu cuenta</h1>
+                            <div class="flex mt-6 justify-center">
+                              <div class="w-16 h-1 rounded-full bg-indigo-500 inline-flex"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                    </div>
                       <form onSubmit={handleLogin}>
                         <div class="m-2">EMAIL</div>
                         <input
@@ -82,7 +66,7 @@ const Login = () => {
                           class="border-b m-2  bg-gray-50 focus:outline-none"
                         />
 
-                        <div class="m-2">PASSWORD</div>
+                        <div class="m-2">CONTRASEÑA</div>
                         <input
                           type="password"
                           value={password}
@@ -95,22 +79,18 @@ const Login = () => {
                           class="border-b  border-stone-400 "
                           type="checkbox"
                         />
-                        <div class="ml-1">Remember Me</div>
+                        <div class="ml-1">Recordarme</div>
                       </div>
                       <div class="flex m-2">
                         <button 
                         type="submit"
                         class="bg-gradient-to-l from-fuchsia-600 to-cyan-400 px-6 py-1 rounded-2xl text-white font-medium">
-                          LOGIN
+                          INICIAR SESIÓN
                         </button>
-                        <button class="text-transparent  bg-clip-text bg-gradient-to-l from-fuchsia-600 to-cyan-400 font-bold ml-2 border-2 rounded-2xl px-6 border-cyan-400">
-                          REGISTER
-                        </button>
-                        
                       </div>
                       </form>
-                      <div class="m-2">Forgotten your login details?</div>
-                      <div class="font-medium ml-2">Get Help Signing In</div>
+                      {error && <p>{error}</p>}
+                      <a href="/login" class="m-2 hover:text-purple-700">¿Has olvidado tu contraseña?</a>
                     </div>
                   </div>
                 </div>

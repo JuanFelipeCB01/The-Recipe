@@ -8,10 +8,10 @@ export default function NavBar() {
   const [navbar, setNavbar] = useState(false);
   const navigate = useNavigate();
   const auth = useAuth();
-
-  const logout = () =>{
+  
+  const logout = () => {
     auth.clearAuth();
-    navigate('/login');
+    navigate("/login");
   };
 
   return (
@@ -78,21 +78,21 @@ export default function NavBar() {
             <ul className="items-center justify- space-y-8 md:flex md:space-x-6 md:space-y-0 mr-4">
               {/* ... (elementos del menú) */}
               <li className="text-white text-end hover:text-indigo-200">
-              <NavLink to="/">Home</NavLink>
+              <NavLink to="/">Inicio</NavLink>
               </li>
               <li className="text-white text-end hover:text-indigo-200">
-              <NavLink to="/recipes">Recipes</NavLink>
+              <NavLink to="/recipes">Recetas</NavLink>
               </li>
               <li className="text-white text-end hover:text-indigo-200">
-              <NavLink to="/ingredients">Ingredients</NavLink>
+              <NavLink to="/ingredients">Ingredientes</NavLink>
               </li>
               {auth.isAuthenticated && (
                 <li className="text-white text-end hover:text-indigo-200">
-                <NavLink to="/profile">Profile</NavLink>
+                <NavLink to="/profile">Perfil</NavLink>
                 </li>
               )}
               <li className="text-white text-end hover:text-indigo-200">
-              <NavLink to="/contact">Contact</NavLink>
+              <NavLink to="/contact">Contactar</NavLink>
               </li>
               
             </ul>
@@ -108,12 +108,12 @@ export default function NavBar() {
                   <NavLink to="/register"
                     className="px-4 py-2 text-white bg-gray-600 rounded-md shadow hover:bg-gray-800 block w-fit "
                   >
-                    Register
+                    Registrarse
                     </NavLink>
                     <NavLink to="/login"
                     className="px-4 py-2 text-white bg-gray-600 rounded-md shadow hover:bg-gray-800 block w-20 flex justify-center"
                   >
-                    <p>Login</p>
+                    <p>Iniciar sesión</p>
                   </NavLink>
                   </>
                 )}
@@ -132,12 +132,12 @@ export default function NavBar() {
             <NavLink to="/register"
             className="px-4 py-2 text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
           >
-            Register
+            Registrarse
             </NavLink>
             <NavLink to="/login"
             className="px-4 py-2 text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
           >
-            Login
+            Iniciar sesión
             </NavLink>
             </>
           )}

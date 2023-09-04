@@ -10,7 +10,7 @@ export function AuthProvider({children}){
     function saveUser(response){
 
         setToken(response.data.token);
-        localStorage.setItem("token", token);
+        localStorage.setItem("token", response.data.token);
 
         setUser(response.data.user);
         setIsAuthenticated(true);
@@ -24,7 +24,7 @@ export function AuthProvider({children}){
     }
 
     return(
-        <AuthContext.Provider value={{isAuthenticated, user, saveUser, clearAuth}}>
+        <AuthContext.Provider value={{isAuthenticated, user, saveUser, clearAuth, token}}>
             {children}
         </AuthContext.Provider>
     );
