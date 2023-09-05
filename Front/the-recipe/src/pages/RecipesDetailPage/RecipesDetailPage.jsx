@@ -1,10 +1,12 @@
 import React, { useRef, useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-cards";
 import { EffectCards } from "swiper/modules";
+import { useAuth } from "../../shared/AuthContext";
+import UpdateRecipe from "../../components/UpdateRecipe/UpdateRecipe";
 
 const customStyles = `
   .swiper-3d .swiper-slide-shadow {
@@ -15,6 +17,33 @@ const customStyles = `
 function RecipeDetailPage() {
   const { id } = useParams();
   const [recipe, setRecipe] = useState(null);
+  const auth = useAuth();
+  const { user } = useAuth();
+  const [ message, setMessage ] = useState();
+  const navigate = useNavigate();
+  const [displayForm, setDisplayForm] = useState(false);
+
+  const display = () =>{
+    setDisplayForm(!displayForm);
+  }
+
+  const handleDeleteRecipe = async (e) => { 
+    e.preventDefault();
+     try {
+      const response = await axios.delete(`http://localhost:5020/recipes/${id}`, {   
+      })
+      if (response.status === 200) {
+        setMessage("Recipe deleted");
+        navigate("/recipes");
+      }
+    } catch (error) {
+      if (error.response) {
+        setMessage(error.response.data.message);
+      } else {
+        setMessage("An error occurred. Please try again later.");
+      }
+    }
+  }
 
   useEffect(() => {
     async function fetchRecipe() {
@@ -115,7 +144,21 @@ function RecipeDetailPage() {
                   </ul>
                 </p>
 
-                <div className="text-right">
+                
+
+                <div className="flex text-right items-center justify-between">
+
+                {auth.isAuthenticated && user.role === "admin" && (
+                  <div>
+                    <button onClick={display} class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg py-2 px-4">
+                      Actualizar
+                    </button>
+                    <button onClick={handleDeleteRecipe} class="ml-4 inline-flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-lg py-2 px-4">
+                      Borrar
+                    </button>
+                  </div>
+                )}                
+                
                   <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded my-5">
                     <Link
                       to={`/recipes`}
@@ -135,12 +178,17 @@ function RecipeDetailPage() {
                       </svg>
                     </Link>
                   </button>
+                  
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+<>
+    {displayForm && <UpdateRecipe recipe={recipe}/>}
+</>
 
       <>
         <div className="flex justify-center p-10">

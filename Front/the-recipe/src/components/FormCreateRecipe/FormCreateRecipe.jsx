@@ -122,11 +122,12 @@ function FormCreateRecipe() {
   return (
 <>
 
-    <section class="text-gray-600 body-font relative">
-      <div class="container px-5 pb-24 pt-8 mx-auto">
+    <section class="text-gray-600 body-font relative ">
+      <div class="container px-5 pb-24 pt-8 mx-auto shadow-lg ">
         <div class="lg:w-1/2 md:w-2/3 mx-auto">
           <div class="block flex-wrap -m-2 ">
             <form onSubmit={createRecipe} className="p-2">
+
             {/* Name */}
               <div class="p-2">
                 <div class="relative">

@@ -6,7 +6,6 @@ export default function DeleteIngredient() {
 
     const navigate = useNavigate()
     const [message, setMessage] = useState("");
-    
     const { id } = useParams();
 
     const handleDeleteIngredient = async (e) => { 
