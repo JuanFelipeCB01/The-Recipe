@@ -65,6 +65,7 @@ function RecipeDetailPage() {
 
   return (
     <>
+
       <section class="text-gray-600 body-font pt-16">
         <div class="container px-5 pt-8 mx-auto">
           <div class="text-center">
