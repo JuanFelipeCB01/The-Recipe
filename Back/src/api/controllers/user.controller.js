@@ -105,4 +105,32 @@ const updateUser = async (req, res) => {
     }
   };
 
-module.exports = { register, login, profile, getUsers, deleteUser, updateUser };
+  const addToUser = async (req, res) => {
+    
+  try {
+    const { recipeId } = req.params;
+    const { userId } = req.body;
+
+    console.log("recipeId:", recipeId);
+    console.log("userId:", userId);
+
+
+    const user = await User.findByIdAndUpdate(
+      userId,
+      { $addToSet: { recipes: recipeId } },
+      { new: true }
+    );
+
+    // Registro de éxito
+    console.log("Usuario actualizado con éxito");
+
+    return res.status(200).json(user);
+  } catch (error) {
+    
+    // Registro de error
+    console.error("Error al actualizar el usuario:", error);
+    return res.status(500).json(error);
+  }
+};
+
+module.exports = { register, login, profile, getUsers, deleteUser, updateUser, addToUser };

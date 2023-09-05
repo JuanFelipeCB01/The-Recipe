@@ -141,7 +141,7 @@ function RecipeDetailPage() {
         </div>
       </section>
 
-<>
+      <>
       <div className="flex justify-center p-10">
         <section class="text-gray-600 body-font">
             <div class="container px-5 pt-8 mx-auto">

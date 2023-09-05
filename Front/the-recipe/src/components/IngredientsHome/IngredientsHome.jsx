@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 function IngredientsHome() {
   const [ingredients, setIngredients] = useState([]);
@@ -32,44 +33,44 @@ function IngredientsHome() {
   );
 
   // Limitar el mapeo a seis elementos
-  const limitedIngredients = filteredIngredients.slice(0, 6);
+  const limitedIngredients = filteredIngredients.slice(0, 4);
 
   return (
     <div>
       <section className="text-gray-600 body-font">
-        <div className="container px-5 py-24 mx-auto">
+        <div className="container px-5 py-20 mx-auto">
           <div className="flex flex-col text-center w-full mb-20">
             <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
-              Our Team
+              Top Ingredientes
             </h1>
             <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
-              Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical
-              gentrify, subway tile poke farm-to-table. Franzen you probably
-              haven't heard of them.
+              Descubre todo tipo de Ingredientes y conoce sus propiedades y usos en infinidad de recetas.
             </p>
           </div>
           <div className="flex flex-wrap -m-2">
             {limitedIngredients.length &&
               limitedIngredients.map((ingredient) => (
-                <div className="p-2 lg:w-1/3 md:w-1/2 w-full" key={ingredient.id}>
-                  <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                    <img
-                      alt="team"
-                      className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
-                      src={ingredient.image}
-                    />
-                    <div className="flex-grow">
-                      <h2 className="text-gray-900 title-font font-medium">
-                        {ingredient.name}
-                      </h2>
-                      <p className="text-gray-500">{ingredient.category}</p>
-                    </div>
-                  </div>
-                </div>
+              
+      <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+        <div class=" shadow-xl px-4 py-6 rounded-lg flex flex-col justify-center items-center">
+          <img src={ingredient.image} className='rounded-xl h-24  object-cover'/>
+          <h2 class="title-font font-medium text-xl text-gray-900 mt-2">{ingredient.name}</h2>
+          <p class="leading-relaxed">{ingredient.energeticValue}</p>
+        </div>
+      </div>
               ))}
+              <div className='w-full flex justify-center mt-8'>
+              <button class="w-40 bg-violet-500 hover:bg-orange-400 text-white font-bold py-2 px-4 rounded shadow-xl">
+              <NavLink to="/ingredients">
+                Ver más
+              </NavLink>
+</button>
+</div>
           </div>
         </div>
       </section>
+
+      
     </div>
   );
 }

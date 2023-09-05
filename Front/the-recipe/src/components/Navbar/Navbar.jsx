@@ -63,7 +63,7 @@ export default function NavBar() {
       style={{ zIndex: 1000, height: 72 }}
     >
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="https://flowbite.com/" className="flex items-center">
+        <a href="/" className="flex items-center">
           <img
             src="https://res.cloudinary.com/dc3pogjef/image/upload/v1693815536/bowl-with-spoon-svgrepo-com_1_mvy5p5.svg"
             className="h-8 mr-3"
@@ -98,26 +98,26 @@ export default function NavBar() {
                 className={`${
                   isHomeRoute
                     ? scrollReached20Percent
-                      ? "px-4 py-2 text-white bg-gradient-to-r from-orange-600 to-orange-600 rounded-md shadow hover:bg-gray-800 transition-all duration-1000 ease-in-out"
-                      : "px-4 py-2 text-white bg-gradient-to-r from-violet-600 to-purple-600 rounded-md shadow hover:bg-gray-800"
-                    : "px-4 py-2 text-white bg-gradient-to-r from-orange-600 to-orange-600 rounded-md shadow hover:bg-gray-800"
+                      ? "hidden md:block px-4 py-2 text-white bg-gradient-to-r from-orange-600 to-orange-600 rounded-md shadow hover:bg-gray-800 transition-all duration-1000 ease-in-out"
+                      : "hidden md:block px-4 py-2 text-white bg-gradient-to-r from-violet-600 to-purple-600 rounded-md shadow hover:bg-gray-800"
+                    : "hidden md:block px-4 py-2 text-white bg-gradient-to-r from-orange-600 to-orange-600 rounded-md shadow hover:bg-gray-800"
                 }`}
                 onClick={closeMenu}
               >
-                Register
+                Registrate
               </NavLink>
               <NavLink
                 to="/login"
                 className={`${
                   isHomeRoute
                     ? scrollReached20Percent
-                      ? "px-4 py-2 text-white bg-gradient-to-r from-orange-600 to-orange-600 rounded-md shadow hover:bg-gray-800 transition-all duration-1000 ease-in-out"
-                      : "px-4 py-2 text-white bg-gradient-to-r from-violet-600 to-purple-600 rounded-md shadow hover:bg-gray-800"
-                    : "px-4 py-2 text-white bg-gradient-to-r from-orange-600 to-orange-600 rounded-md shadow hover:bg-gray-800"
+                      ? "hidden md:block px-4 py-2 text-white bg-gradient-to-r from-orange-600 to-orange-600 rounded-md shadow hover:bg-gray-800 transition-all duration-1000 ease-in-out"
+                      : "hidden md:block  px-4 py-2 text-white bg-gradient-to-r from-violet-600 to-purple-600 rounded-md shadow hover:bg-gray-800 "
+                    : "hidden md:block px-4 py-2 text-white bg-gradient-to-r from-orange-600 to-orange-600 rounded-md shadow hover:bg-gray-800 "
                 }`}
                 onClick={closeMenu}
               >
-                Login
+                Accede
               </NavLink>
             </>
           )}
@@ -148,40 +148,60 @@ export default function NavBar() {
           </button>
         </div>
         <div
-          className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${
+          className={`items-center  md:bg-transparent p-3 rounded-lg justify-between items-center w-full md:flex md:w-auto md:order-1 ${
             isMenuOpen ? "block" : "hidden"
           }`}
           id="navbar-sticky"
         >
-          <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium  rounded-lg bg-violet-500 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-transparent text-white gap-1">
-            <li className="bg-transparent rounded-lg p-2 hover:bg-violet-700">
+          <ul className="flex flex-col p-4 md:p-0 font-medium rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:border-0 bg-violet-500 md:bg-transparent text-white ">
+            <li className=" md:bg-transparent rounded-lg  hover:bg-violet-700">
               <NavLink to="/" onClick={closeMenu}>
                 Home
               </NavLink>
             </li>
-            <li className="bg-transparent rounded-lg p-2 hover:bg-violet-700">
+            <li className="bg-transparent rounded-lg  hover:bg-violet-700">
               <NavLink to="/recipes" onClick={closeMenu}>
                 Recipes
               </NavLink>
             </li>
-            <li className="bg-transparent rounded-lg p-2 hover:bg-violet-700">
+            <li className="bg-transparent rounded-lg  hover:bg-violet-700">
               <NavLink to="/ingredients" onClick={closeMenu}>
                 Ingredients
               </NavLink>
-            </li >
+            </li>
             {auth.isAuthenticated && (
-              <li className="bg-transparent rounded-lg p-2 hover:bg-violet-700">
+              <li className="bg-transparent rounded-lg  hover:bg-violet-700">
                 <NavLink to="/profile" onClick={closeMenu}>
                   Profile
                 </NavLink>{" "}
               </li>
             )}
-            <li className="bg-transparent rounded-lg p-2 hover:bg-violet-700">
+            <li className="bg-transparent rounded-lg  hover:bg-violet-700">
               <NavLink to="/contact" onClick={closeMenu}>
                 Contact
               </NavLink>
             </li>
           </ul>
+
+          {/* Botones de Login y Register */}
+          {!auth.isAuthenticated && (
+            <div className="mt-1 space-y-1">
+              <NavLink
+                to="/login"
+                className="md:hidden block px-4 py-2 text-white bg-gradient-to-r from-orange-600 to-orange-600 rounded-md shadow hover:bg-gray-800 transition-all duration-1000 ease-in-out"
+                onClick={closeMenu}
+              >
+                Login
+              </NavLink>
+              <NavLink
+                to="/register"
+                className="md:hidden block px-4 py-2 text-white bg-gradient-to-r from-orange-600 to-orange-600 rounded-md shadow hover:bg-gray-800 transition-all duration-1000 ease-in-out"
+                onClick={closeMenu}
+              >
+                Register
+              </NavLink>
+            </div>
+          )}
         </div>
       </div>
     </nav>
