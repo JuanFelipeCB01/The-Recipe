@@ -11,7 +11,6 @@ export function AuthProvider({children}){
 
         localStorage.setItem("token", response.data.token);
         setToken(response.data.token);
-
         setUser(response.data.user);
         setIsAuthenticated(true);
         

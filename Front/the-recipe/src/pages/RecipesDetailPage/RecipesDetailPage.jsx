@@ -189,7 +189,6 @@ function RecipeDetailPage() {
 <>
     {displayForm && <UpdateRecipe recipe={recipe}/>}
 </>
-
       <>
         <div className="flex justify-center p-10">
           <section class="text-gray-600 body-font">

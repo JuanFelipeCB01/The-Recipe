@@ -1,38 +1,47 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import FormCreateRecipe from '../../components/FormCreateRecipe/FormCreateRecipe';
+import FormCreateRecipe from "../../components/FormCreateRecipe/FormCreateRecipe";
 import { useAuth } from "../../shared/AuthContext";
 
-
-
-
-
-  
-
 function RecipesPage() {
-
   const [recipes, setRecipes] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [uniqueCategories, setUniqueCategories] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const recipesPerPage = 9; 
-  
-  
-  
+  const recipesPerPage = 9;
+
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
 
   const handleAgregarRecetaClick = () => {
     setMostrarFormulario(!mostrarFormulario);
   };
 
+  const handleLikeClick = async (recipeId) => {
+    try {
+      // Realiza una solicitud POST a la API para aumentar/disminuir el like
+      const response = await axios.put(`http://localhost:5020/recipes/${recipeId}/like`);
+  
+      // Actualiza el estado de las recetas con la respuesta de la API
+      setRecipes((prevRecipes) =>
+        prevRecipes.map((recipe) =>
+          recipe._id === recipeId
+            ? { ...recipe, likes: recipe.likes + 1 } // Sumar 1 al valor actual de likes
+            : recipe
+        )
+      );
+    } catch (error) {
+      console.error("Error al actualizar los likes:", error);
+    }
+  };
+
+  
+
   const auth = useAuth();
   const { user } = useAuth();
-  
-  
-  
+
   // Cantidad de recetas por página
 
   useEffect(() => {
@@ -109,8 +118,6 @@ function RecipesPage() {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
-
-
   return (
     <>
       <div className="p-16">
@@ -124,8 +131,6 @@ function RecipesPage() {
             </div>
           </div>
         </div>
-
-
 
         {/* Barra de búsqueda */}
         <section className="text-gray-600 body-font">
@@ -234,19 +239,20 @@ function RecipesPage() {
         </section>
       </div>
 
-
-
       {auth.isAuthenticated && user.role === "admin" && (
-      <section class="text-gray-600 body-font">
-        <div class="container px-5 mx-auto">
-          <button onClick={handleAgregarRecetaClick} class="flex mx-auto mt-4 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg mr-0">+ Agregar Receta</button>
-        </div>
-      </section> )}
+        <section class="text-gray-600 body-font">
+          <div class="container px-5 mx-auto">
+            <button
+              onClick={handleAgregarRecetaClick}
+              class="flex mx-auto mt-4 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg mr-0"
+            >
+              + Agregar Receta
+            </button>
+          </div>
+        </section>
+      )}
 
-
-      {mostrarFormulario && <FormCreateRecipe/>}
-
-
+      {mostrarFormulario && <FormCreateRecipe />}
 
       {/* Resultados de recetas */}
 
@@ -259,7 +265,7 @@ function RecipesPage() {
                     className="p-4 md:w-1/2 lg:w-1/3 w-full"
                     key={recipe._id}
                   >
-                    <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                    <div className="h-full  border-opacity-60 rounded-xl shadow-xl overflow-hidden hover:scale-[1.01] transition-all duration-300">
                       <img
                         src={recipe.image}
                         alt="Descripción de la imagen"
@@ -276,9 +282,11 @@ function RecipesPage() {
                         <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
                           {recipe.name}
                         </h1>
-                        <p className="leading-relaxed mb-3">
+                        <div className="w-full h-20">
+                        <p className="leading-relaxed mb-3 text-fit">
                           {recipe.description}
                         </p>
+                        </div>
                         <div className="flex items-center flex-wrap ">
                           <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded my-5">
                             <Link
@@ -300,21 +308,24 @@ function RecipesPage() {
                               </svg>
                             </Link>
                           </button>
-                          <span className="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
-                            <svg
-                              className="w-4 h-4 mr-1"
-                              stroke="currentColor"
-                              strokeWidth="2"
-                              fill="none"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              viewBox="0 0 24 24"
-                            >
-                              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                              <circle cx="12" cy="12" r="3"></circle>
-                            </svg>
-                            1.2K
-                          </span>
+                          <button
+                        onClick={() => handleLikeClick(recipe._id)}
+                        className="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
+                      >
+                        <svg
+                          className="w-4 h-4 mr-1"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          fill="none"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                          <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                        {recipe.likes}
+                      </button>
                           <span className="text-gray-400 inline-flex items-center leading-none text-sm">
                             <svg
                               className="w-4 h-4 mr-1"
