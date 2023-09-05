@@ -260,8 +260,7 @@ function RecipesPage() {
         <section className="text-gray-600 body-font">
           <div className="container px-5 pt-8 mx-auto">
             <div className="flex flex-wrap -m-4">
-              {currentRecipes.length ? (
-                currentRecipes.map((recipe) => (
+              {currentRecipes.length ? ( currentRecipes.map((recipe) => (
                   <div
                     className="p-4 md:w-1/2 lg:w-1/3 w-full"
                     key={recipe._id}

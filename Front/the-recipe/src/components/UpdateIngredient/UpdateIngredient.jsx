@@ -1,52 +1,54 @@
-import React, { useState } from "react";
-import { axiosInstance } from "../../utils/axios.js";
-import { useNavigate } from "react-router-dom";
-import Form from "react-bootstrap/Form";
+import React, { useState } from 'react'
+import { useNavigate, useParams } from 'react-router';
+import { axiosInstance } from '../../utils/axios';
+import axios from 'axios';
 
-function FormCreateIngredient() {
-  const [name, setName] = useState("");
-  const [category, setCategory] = useState("");
-  const [description, setDescription] = useState("");
-  const [energeticValue, setEnergeticValue] = useState("");
-  const [totalFat, setTotalFat] = useState("");
-  const [saturatedFat, setSaturatedFat] = useState("");
-  const [carbs, setCarbs] = useState("");
-  const [sugars, setSugars] = useState("");
-  const [sodium, setSodium] = useState("");
-  const [image, setImage] = useState("");
-  const [message, setMessage] = useState("");
+export default function UpdateIngredient({ingredient}) {
+    const  { id } = useParams;
+    const [name, setName] = useState(ingredient.name);
+    const [description, setDescription] = useState(ingredient.description);
+    const [category, setCategory] = useState(ingredient.category)
+    const [energeticValue, setEnergeticValue] = useState(ingredient.energeticValue);
+    const [totalFat, setTotalFat] = useState(ingredient.totalFat);
+    const [saturatedFat, setSaturatedFat] = useState(ingredient.saturatedFat);
+    const [carbs, setCarbs] = useState(ingredient.carbs);
+    const [sugars, setSugars] = useState(ingredient.sugars);
+    const [sodium, setSodium] = useState(ingredient.sodium);
+    const [image, setImage] = useState(ingredient.image);
+    const [message, setMessage] = useState();
 
-  const navigate = useNavigate();
+    const navigate = useNavigate();
 
-
-  const handleRegistration = async (e) => {
-    e.preventDefault();
-
-    try {
-      const response = await axiosInstance.post("/ingredients", {
-        name,
-        description,
-        totalFat,
-        saturatedFat,
-        energeticValue,
-        carbs,
-        sugars,
-        sodium,
-        image,
-      });
-
-      if (response.status === 200) {
-        setMessage("UIngrdient added successfully!");
-        navigate("/ingredients");
-      }
-    } catch (error) {
-      if (error.response) {
-        setMessage(error.response.data.message);
-      } else {
-        setMessage("An error occurred. Please try again later.");
-      }
-    }
-  };
+    const handleRegistration = async (e) => {
+        e.preventDefault();
+    
+        try {
+            console.log(id)
+          const response = await axios.put(`http://localhost:5020/ingredients/${ingredient._id}`, {
+            name,
+            description,
+            category,
+            totalFat,
+            saturatedFat,
+            energeticValue,
+            carbs,
+            sugars,
+            sodium,
+            image
+          })
+    
+          if (response.status === 200) {
+            setMessage("Ingrdient Updated successfully!");
+            navigate(`/ingredients/${ingredient._id}`);
+          }
+        } catch (error) {
+          if (error.response) {
+            setMessage(error.response.data.message);
+          } else {
+            setMessage("An error occurred. Please try again later.");
+          }
+        }
+      };
 
   return (
     <>
@@ -63,8 +65,6 @@ function FormCreateIngredient() {
                     </label>
                     <input
                       type="text"
-                      id="name"
-                      name="name"
                       value={name}
                       onChange={(e) => setName(e.target.value)} 
                       required
@@ -78,7 +78,7 @@ function FormCreateIngredient() {
                     <label for="name" class="leading-7 text-sm text-gray-600">
                     Categoría:
                     </label>
-                    <Form.Select
+                    <select
                     aria-label="Default select example"
                     type="text"
                     value={category}
@@ -91,7 +91,7 @@ function FormCreateIngredient() {
                     <option>Meat</option>
                     <option>Cereal</option>
                     <option>Oil</option>
-                  </Form.Select>
+                  </select>
                   </div>
                 </div>
 
@@ -102,8 +102,6 @@ function FormCreateIngredient() {
                     </label>
                     <input
                       type="text"
-                      id="name"
-                      name="name"
                       value={description}
                       onChange={(e) => setDescription(e.target.value)} 
                       required
@@ -119,8 +117,6 @@ function FormCreateIngredient() {
                     </label>
                     <input
                       type="text"
-                      id="name"
-                      name="name"
                       value={energeticValue}
                       onChange={(e) => setEnergeticValue(e.target.value)} 
                       required
@@ -136,8 +132,6 @@ function FormCreateIngredient() {
                     </label>
                     <input
                       type="text"
-                      id="name"
-                      name="name"
                       value={totalFat}
                       onChange={(e) => setTotalFat(e.target.value)} 
                       required
@@ -153,8 +147,6 @@ function FormCreateIngredient() {
                     </label>
                     <input
                       type="text"
-                      id="name"
-                      name="name"
                       value={saturatedFat}
                       onChange={(e) => setSaturatedFat(e.target.value)}
                       required
@@ -170,8 +162,6 @@ function FormCreateIngredient() {
                     </label>
                     <input
                       type="text"
-                      id="name"
-                      name="name"
                       value={carbs}
                       onChange={(e) => setCarbs(e.target.value)} 
                       required
@@ -187,8 +177,6 @@ function FormCreateIngredient() {
                     </label>
                     <input
                       type="text"
-                      id="name"
-                      name="name"
                       value={sugars}
                       onChange={(e) => setSugars(e.target.value)} 
                       required
@@ -205,8 +193,6 @@ function FormCreateIngredient() {
                     </label>
                     <input
                       type="text"
-                      id="name"
-                      name="name"
                       value={sodium}
                       onChange={(e) => setSodium(e.target.value)}
                       required
@@ -223,8 +209,6 @@ function FormCreateIngredient() {
                     </label>
                     <input
                       type="text"
-                      id="name"
-                      name="name"
                       value={image}
                       onChange={(e) => setImage(e.target.value)}
                       required
@@ -235,7 +219,7 @@ function FormCreateIngredient() {
 
                 <div class="p-2 w-full">
                   <button class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-                    Agregar ingrediente
+                    Actualizar ingrediente
                   </button>
                 </div>
               </form>
@@ -244,128 +228,5 @@ function FormCreateIngredient() {
         </div>
       </section>
     </>
-  );
+  )
 }
-
-// {/* <>
-//   <div>
-//     <h2>Add Ingredient</h2>
-//     <form style={formStyle} onSubmit={handleRegistration}>
-//       {/* Name */}
-//       <div>
-//         <label>Nombre:</label>
-//         <input
-//           type="text"
-//           value={name}
-//           onChange={(e) => setName(e.target.value)}
-//           required
-//         />
-//       </div>
-//       <div>
-//         <label>Categoría:</label>
-//         <Form.Select
-//           aria-label="Default select example"
-//           type="text"
-//           value={category}
-//           onChange={(e) => setCategory(e.target.value)}
-//           required
-//         >
-//           <option>Vegetable</option>
-//           <option>Fruit</option>
-//           <option>Meat</option>
-//           <option>Cereal</option>
-//           <option>Oil</option>
-//         </Form.Select>
-//       </div>
-//       {/* Description */}
-
-//       <div>
-//         <label>Descripción:</label>
-//         <input
-//           type="text"
-//           value={description}
-//           onChange={(e) => setDescription(e.target.value)}
-//           required
-//         />
-//       </div>
-
-//       {/* Energetic Value */}
-//       <div>
-//         <label>Valor energético:</label>
-//         <input
-//           type="text"
-//           value={energeticValue}
-//           onChange={(e) => setEnergeticValue(e.target.value)}
-//           required
-//         />
-//       </div>
-//       {/* Total Fat */}
-//       <div>
-//         <label>Grasas:</label>
-//         <input
-//           type="text"
-//           value={totalFat}
-//           onChange={(e) => setTotalFat(e.target.value)}
-//           required
-//         />
-//       </div>
-//       {/* Saturated Fat */}
-//       <div>
-//         <label>Grasas saturadas:</label>
-//         <input
-//           type="text"
-//           value={saturatedFat}
-//           onChange={(e) => setSaturatedFat(e.target.value)}
-//           required
-//         />
-//       </div>
-//       {/* Carbs */}
-//       <div>
-//         <label>Carbohidratos:</label>
-//         <input
-//           type="text"
-//           value={carbs}
-//           onChange={(e) => setCarbs(e.target.value)}
-//           required
-//         />
-//       </div>
-
-//       {/* Sugars */}
-//       <div>
-//         <label>Azúcares:</label>
-//         <input
-//           type="text"
-//           value={sugars}
-//           onChange={(e) => setSugars(e.target.value)}
-//           required
-//         />
-//       </div>
-//       {/* Sodium */}
-//       <div>
-//         <label>Sodio:</label>
-//         <input
-//           type="text"
-//           value={sodium}
-//           onChange={(e) => setSodium(e.target.value)}
-//           required
-//         />
-//       </div>
-
-//       {/* Image */}
-//       <div>
-//         <label>Imagen:</label>
-//         <input
-//           type="text"
-//           value={image}
-//           onChange={(e) => setImage(e.target.value)}
-//           required
-//         />
-//       </div>
-//       <button type="submit">Register</button>
-//     </form>
-//     {message && <p>{message}</p>}
-//   </div>
-//   );
-// </>; */}
-
-export default FormCreateIngredient;

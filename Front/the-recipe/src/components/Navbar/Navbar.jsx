@@ -8,6 +8,7 @@ export default function NavBar() {
   const [scrollReached20Percent, setScrollReached20Percent] = useState(false);
   const navigate = useNavigate();
   const auth = useAuth();
+
   const location = useLocation();
 
   const isHomeRoute = location.pathname === "/";
@@ -156,29 +157,29 @@ export default function NavBar() {
           <ul className="flex flex-col p-4 md:p-0 font-medium rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:border-0 bg-violet-500 md:bg-transparent text-white ">
             <li className=" md:bg-transparent rounded-lg  hover:bg-violet-700">
               <NavLink to="/" onClick={closeMenu}>
-                Home
+                Inicio
               </NavLink>
             </li>
             <li className="bg-transparent rounded-lg  hover:bg-violet-700">
               <NavLink to="/recipes" onClick={closeMenu}>
-                Recipes
+                Recetas
               </NavLink>
             </li>
             <li className="bg-transparent rounded-lg  hover:bg-violet-700">
               <NavLink to="/ingredients" onClick={closeMenu}>
-                Ingredients
+                Ingredientes
               </NavLink>
             </li>
             {auth.isAuthenticated && (
               <li className="bg-transparent rounded-lg  hover:bg-violet-700">
                 <NavLink to="/profile" onClick={closeMenu}>
-                  Profile
+                  Perfil
                 </NavLink>{" "}
               </li>
             )}
             <li className="bg-transparent rounded-lg  hover:bg-violet-700">
               <NavLink to="/contact" onClick={closeMenu}>
-                Contact
+                Contactar
               </NavLink>
             </li>
           </ul>
