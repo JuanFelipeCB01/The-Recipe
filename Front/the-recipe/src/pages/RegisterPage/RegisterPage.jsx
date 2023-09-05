@@ -75,6 +75,8 @@ function UserRegistrationForm() {
                             value={age}
                             onChange={(e) => setAge(e.target.value)}
                             required
+                            min={0}
+                            max={100}
                             class="border-b m-2  bg-gray-50  focus:outline-none"
                           />
                         <div class="m-2">EMAIL</div>
