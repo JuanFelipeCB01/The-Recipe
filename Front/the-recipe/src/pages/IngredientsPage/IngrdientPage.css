@@ -1,0 +1,17 @@
+/* .ingredients{
+    margin: 80px 1em 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+
+    .ingredients-title{
+        font-size: 30px;
+    }
+
+    .ingredients-slider{
+        width:320px;
+        border: 1px solid transparent;
+        overflow: hidden;
+    }
+} */
